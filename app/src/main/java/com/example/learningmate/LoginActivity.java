@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         et_id=findViewById(R.id.editTextId);
         et_pass=findViewById(R.id.editTextPw);
         btn_login=findViewById(R.id.btnLogin);
-        btn_register=findViewById(R.id.btn_register);
+        btn_register=findViewById(R.id.btnRegister);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +50,12 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jasonObject=new JSONObject(response);
                             boolean success=jasonObject.getBoolean("success");
                             if (success) {
-                                String userID = jasonObject.getString("userID");
-                                String userPass = jasonObject.getString("userPassword");
+                                String userID = jasonObject.getString("uid");
+                                String userPass = jasonObject.getString("password");
                                 Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.putExtra("log", "User");
-                                intent.putExtra("userID", userID);
+                                intent.putExtra("uid", userID);
                                 startActivity(intent);
                             }
                             else{

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
-    final static  private String URL="http://windry.dothome.co.kr/myadmin/~.php";
+    final static  private String URL="http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
     private Map<String,String> map;
 
     public RegisterRequest(String userID, String userPassword, String userName, Response.Listener<String>listener){
@@ -16,8 +16,8 @@ public class RegisterRequest extends StringRequest {
 
         map=new HashMap<>();
         map.put("userName",userName);
-        map.put("userID",userID);
-        map.put("userPassword",userPassword);
+        map.put("uid",userID);
+        map.put("password",userPassword);
     }
 
     @Override

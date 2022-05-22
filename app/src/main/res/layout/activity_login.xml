@@ -4,16 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--
-    CREATE TABLE `USER`(
-    userName VARCHAR(50) NOT NULL,
-    userID VARCHAR(50) NOT NULL,
-    userPassword VARCHAR(50) NOT NULL,
-    identity VARCHAR(10) NOT NULL,
-    PRIMARY KEY(userID)
-    );
-    -->
-
     <EditText
         android:id="@+id/editTextId"
         android:layout_width="wrap_content"

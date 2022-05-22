@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.example.learningmate.ui.login.LoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_id=findViewById(R.id.editTextId);
         et_pass=findViewById(R.id.editTextPw);
         et_passck=findViewById(R.id.editTextPwCheck);
-        validateButton=findViewById(R.id.validateButton);
+        validateButton=findViewById(R.id.btnValidate);
 
         validateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        btn_register=findViewById(R.id.btn_register);
+        btn_register=findViewById(R.id.btnRegister);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

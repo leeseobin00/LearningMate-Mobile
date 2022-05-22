@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ValidateRequest extends StringRequest {
-    final static  private String URL="http://windry.dothome.co.kr/myadmin/~.php";
+    final static  private String URL="http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
     private Map<String,String> map;
 
     public ValidateRequest(String userID, Response.Listener<String>listener){
         super(Request.Method.POST,URL,listener,null);
 
         map=new HashMap<>();
-        map.put("userID",userID);
+        map.put("uid",userID);
     }
 
     @Override
