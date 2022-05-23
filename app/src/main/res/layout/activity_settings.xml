@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageButton
+        android:id="@+id/back_ib"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/backbutton"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/settings_tv"
+        app:layout_constraintEnd_toStartOf="@id/settings_tv"
+        app:layout_constraintBottom_toBottomOf="@id/settings_tv"/>
+
+    <TextView
+        android:id="@+id/settings_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="설정"
+        android:textStyle="bold"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/setting_user_cv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/settings_tv"
+        app:layout_constraintStart_toStartOf="@id/settings_tv">
+        <ImageView
+            android:id="@+id/setting_profile_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_700"
+            app:layout_constraintTop_toTopOf = "parent"
+            app:layout_constraintStart_toStartOf= "parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/setting_username_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저명"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintStart_toEndOf="@id/setting_user_cv"
+        app:layout_constraintTop_toTopOf="@id/setting_user_cv"/>
+
+
+    <TextView
+        android:id="@+id/setting_modify_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/gray"
+        android:text="회원정보 수정"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/setting_username_tv"
+        app:layout_constraintStart_toStartOf="@id/setting_username_tv"/>
+
+
+    <TextView
+        android:id="@+id/setting_logout_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/red"
+        android:text="로그아웃"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/setting_modify_tv"
+        app:layout_constraintStart_toStartOf="@id/setting_username_tv"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settings_user_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:elevation="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/setting_user_cv">
+
+        <TextView
+            android:id="@+id/settings_myuser_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나의 멘토/멘티"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/setting_user_cv"
+            app:layout_constraintStart_toStartOf="@id/setting_user_cv"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/setting_myuser_cv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toBottomOf="@id/settings_myuser_tv"
+            app:layout_constraintStart_toStartOf="@id/settings_myuser_tv">
+            <ImageView
+                android:id="@+id/setting_myprofile_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/teal_700"
+                app:layout_constraintTop_toTopOf = "parent"
+                app:layout_constraintStart_toStartOf= "parent"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/setting_usercategory_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멘토"
+            android:textColor="@color/teal_700"
+            android:textSize="15sp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toTopOf="@id/setting_myusername_tv"
+            app:layout_constraintBottom_toBottomOf="@id/setting_myusername_tv"
+            app:layout_constraintStart_toEndOf="@id/setting_myuser_cv"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/setting_myusername_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멘토/멘티명"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintTop_toTopOf="@id/setting_myuser_cv"
+            app:layout_constraintStart_toEndOf="@id/setting_usercategory_tv"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/setting_link_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:textColor="@color/teal_700"
+            android:text="유저와 연결하기"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/setting_usercategory_tv"
+            app:layout_constraintTop_toTopOf="@id/setting_myusername_tv"
+            android:visibility="visible"/>
+
+
+        <TextView
+            android:id="@+id/setting_disconnect_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="@color/red"
+            android:text="멘토 멘티 해제"
+            android:visibility="invisible"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/setting_myusername_tv"
+            app:layout_constraintStart_toStartOf="@id/setting_usercategory_tv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
