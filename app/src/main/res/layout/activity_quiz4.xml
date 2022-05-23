@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/question4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/q4RadioGroup"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
@@ -31,13 +31,13 @@
         android:paddingRight="30dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintBottom_toTopOf="@+id/q4btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question">
+        app:layout_constraintTop_toBottomOf="@+id/question4">
 
         <RadioButton
-            android:id="@+id/answer1"
+            android:id="@+id/q4Answer1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:buttonTint="#7D5801"
@@ -45,7 +45,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/answer2"
+            android:id="@+id/q4Answer2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:buttonTint="#7D5801"
@@ -53,7 +53,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/answer3"
+            android:id="@+id/q4Answer3"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:buttonTint="#7D5801"
@@ -61,7 +61,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/answer4"
+            android:id="@+id/q4Answer4"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:buttonTint="#7D5801"
@@ -70,7 +70,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/btnSubmit"
+        android:id="@+id/q4btnSubmit"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="제출"

@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent intent=new Intent(getApplicationContext(), RegisterActivity.class);  // 회원가입 페이지로 이동
                 startActivity(intent);
             }
         });
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 // DB의 정보와 입력한 정보가 일치하면 main page로 이동
                 //if (success) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // 메인 화면으로 이동
                     startActivity(intent);
                 //} else {
                 // DB의 정보와 일치하지 않으면 메세지를 띄움

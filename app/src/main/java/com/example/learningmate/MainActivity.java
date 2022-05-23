@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mContext = this;
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
                 //Log.d("request result", postUserInfo() + "");
-            }
-        }).start();
+//            }
+//        }).start();
     }
 
     public boolean postUserInfo(String id, String pw, String name, String iden) {
