@@ -1,48 +1,48 @@
 package com.example.learningmate;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class ProblemActivity extends AppCompatActivity {
+
+    RecyclerView problemRecyclerView;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem);
 
-        int answer = 0;
+        int result = 0;
 
-        RadioGroup radioGroup = findViewById(R.id.q1RadioGroup);
-        RadioButton radioBtn1 = findViewById(R.id.q1Answer1);
-        RadioButton radioBtn2 = findViewById(R.id.q1Answer2);
-        RadioButton radioBtn3 = findViewById(R.id.q1Answer3);
-        RadioButton radioBtn4 = findViewById(R.id.q1Answer4);
+        problemRecyclerView = findViewById(R.id.problem_rv);
+        problemRecyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        problemRecyclerView.setLayoutManager(layoutManager);
 
-        Button btn_next1 = (Button) findViewById(R.id.q1btnNext);
+        ArrayList<Problem> problemArrayList = new ArrayList<>();
 
-        // 정답이 무엇인지 판단
-        if (radioBtn1.isChecked()) {
-            answer = 1;
-        } else if (radioBtn2.isChecked()) {
-            answer = 2;
-        } else if (radioBtn3.isChecked()) {
-            answer = 3;
-        } else if (radioBtn4.isChecked()) {
-            answer = 4;
-        }
+        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
+        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
+        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
+        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
 
-        btn_next1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // quiz2로 이동하는 것으로 바꿔야함
-                startActivity(intent);
-            }
-        });
+        ProblemRVAdapter problemRVAdapter = new ProblemRVAdapter(problemArrayList);
+        problemRecyclerView.setAdapter(problemRVAdapter);
+
+//        Button btn_next1 = (Button) findViewById(R.id.q1btnNext);
+
+        //btn_next1.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // quiz2로 이동하는 것으로 바꿔야함
+        //        startActivity(intent);
+        //    }
+        //});
     }
 }
