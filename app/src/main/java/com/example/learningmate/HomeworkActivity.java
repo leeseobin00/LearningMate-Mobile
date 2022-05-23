@@ -31,5 +31,15 @@ public class HomeworkActivity extends AppCompatActivity {
 
         HomeworkRVAdapter homeworkRVAdapter = new HomeworkRVAdapter(homeworkArrayList);
         homeworkRecyclerView.setAdapter(homeworkRVAdapter);
+
+
+        //file업로드 액티비티 만들면 연결
+        /*homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+                startActivity(intent);
+            }
+        });*/
     }
 }
