@@ -1,6 +1,8 @@
 package com.example.learningmate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -28,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         et_passck = findViewById(R.id.editTextPwCheck);
 
         btn_validate = findViewById(R.id.btnValidate);
-        btn_register = findViewById(R.id.btnRegister);
+        btn_register = findViewById(R.id.btnRegister2);
 
         radioGroup = findViewById(R.id.radioGroup);
         btn_radio1 = findViewById(R.id.radioBtn1);
@@ -43,5 +45,13 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (btn_radio2.isChecked()) {
             ((MainActivity) MainActivity.mContext).postUserInfo(id, pw, name, "0");
         }
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);  // 회원가입 페이지로 이동
+                startActivity(intent);
+            }
+        });
     }
 }
