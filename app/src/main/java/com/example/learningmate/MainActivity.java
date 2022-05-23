@@ -1,10 +1,20 @@
 package com.example.learningmate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -15,6 +25,7 @@ import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
     public static Context mContext;
+    CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +39,57 @@ public class MainActivity extends AppCompatActivity {
                 //Log.d("request result", postUserInfo() + "");
 //            }
 //        }).start();
+
+        //카드뷰 선언
+        CardView quizcv = findViewById(R.id.home_quiz_cv);
+        CardView homeworkcv = findViewById(R.id.home_homework_cv);
+
+        //캘린더뷰
+        calendarView = findViewById(R.id.home_calendar);
+
+        //내정보
+        TextView settingsView = findViewById(R.id.home_userinfo_tv);
+
+        //내정보 눌렀을 시에 settingActivity 이동
+        settingsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        DateFormat formatter = new SimpleDateFormat("yyyy년 mm월 dd일");
+        Date date = new Date(calendarView.getDate());
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int date) {
+
+            }
+        });
+
+        //퀴즈 눌렀을 때 퀴즈Activity로 이동
+        quizcv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        homeworkcv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HomeworkActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     public boolean postUserInfo(String id, String pw, String name, String iden) {
         try {

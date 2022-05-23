@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/setting_myuser_cv"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:cardCornerRadius="50dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintTop_toBottomOf="@id/settings_myuser_tv"
+        app:layout_constraintStart_toStartOf="@id/settings_myuser_tv">
+
+        <ImageView
+            android:id="@+id/setting_myprofile_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_700"
+            app:layout_constraintTop_toTopOf = "parent"
+            app:layout_constraintStart_toStartOf= "parent"/>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/search_user_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="@id/setting_myuser_cv"
+        app:layout_constraintStart_toEndOf="@id/setting_myuser_cv"/>
+
+
+
+    <TextView
+        android:id="@+id/search_user_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:text="아이디"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/setting_myuser_cv"
+        app:layout_constraintStart_toStartOf="@id/search_user_name_tv"/>
+
+    <TextView
+        android:id="@+id/search_connect_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="연결"
+        android:textSize="20sp"
+        android:textColor="@color/teal_700"
+        app:layout_constraintTop_toTopOf="@id/setting_myuser_cv"
+        app:layout_constraintBottom_toBottomOf="@id/setting_myuser_cv"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
