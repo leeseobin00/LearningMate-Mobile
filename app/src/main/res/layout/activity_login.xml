@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
-        android:id="@+id/editTextId"
+        android:id="@+id/editTextIdLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPw"
+        android:id="@+id/editTextPwLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -30,7 +30,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextId" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextIdLogin" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -38,10 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="로그인"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPw"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPwLogin"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextPw"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPw" />
+        app:layout_constraintStart_toStartOf="@+id/editTextPwLogin"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPwLogin" />
 
     <Button
         android:id="@+id/btnRegister"
