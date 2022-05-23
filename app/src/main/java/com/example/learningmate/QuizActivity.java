@@ -25,11 +25,23 @@ public class QuizActivity extends AppCompatActivity {
 
         ArrayList<Quiz> quizArrayList = new ArrayList<>();
 
-        quizArrayList.add(new Quiz("과제1"));
-        quizArrayList.add(new Quiz("과제2"));
-        quizArrayList.add(new Quiz("과제3"));
+        quizArrayList.add(new Quiz("퀴즈1"));
+        quizArrayList.add(new Quiz("퀴즈2"));
+        quizArrayList.add(new Quiz("퀴즈3"));
 
         QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
         quizRecyclerViews.setAdapter(quizRVAdapter);
+
+//        CardView quiz_cv = findViewById(R.id.quiz_cv);
+
+        // problem activity로 연결되게 만들어야함
+//        quiz_cv.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
     }
 }

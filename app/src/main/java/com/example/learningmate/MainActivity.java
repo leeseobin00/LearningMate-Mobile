@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //        }).start();
 
         //카드뷰 선언
+        CardView usercv = findViewById(R.id.home_user_cv);
         CardView quizcv = findViewById(R.id.home_quiz_cv);
         CardView homeworkcv = findViewById(R.id.home_homework_cv);
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         //내정보
         TextView settingsView = findViewById(R.id.home_userinfo_tv);
 
-        //내정보 눌렀을 시에 settingActivity 이동
+        // 내정보 눌렀을 시에 settingActivity 이동
         settingsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,11 +71,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        usercv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AlertActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //퀴즈 눌렀을 때 퀴즈Activity로 이동
         quizcv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
+                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
                 startActivity(intent);
             }
         });
@@ -87,9 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
 
     public boolean postUserInfo(String id, String pw, String name, String iden) {
         try {

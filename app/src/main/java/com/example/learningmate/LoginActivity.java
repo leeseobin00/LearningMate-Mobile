@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,23 +27,23 @@ public class LoginActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(), RegisterActivity.class);  // 회원가입 페이지로 이동
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);  // 회원가입 페이지로 이동
                 startActivity(intent);
             }
         });
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userID = et_id.getText().toString();
-                String userPass = et_pass.getText().toString();
+                //String userID = et_id.getText().toString();
+                //String userPass = et_pass.getText().toString();
 
                 // DB의 정보와 입력한 정보가 일치하면 main page로 이동
                 //if (success) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // 메인 화면으로 이동
-                    startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // 메인 화면으로 이동
+                startActivity(intent);
                 //} else {
                 // DB의 정보와 일치하지 않으면 메세지를 띄움
-                Toast.makeText(LoginActivity.this, "아이디 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+                //Toast.makeText(LoginActivity.this, "아이디 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
                 //}
             }
         });

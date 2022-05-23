@@ -7,7 +7,6 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/setting_myuser_cv"
         android:layout_width="70dp"
