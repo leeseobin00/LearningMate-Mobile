@@ -1,6 +1,8 @@
 package com.example.learningmate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,16 +34,13 @@ public class QuizActivity extends AppCompatActivity {
         QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
         quizRecyclerViews.setAdapter(quizRVAdapter);
 
-//        CardView quiz_cv = findViewById(R.id.quiz_cv);
-
-        // problem activity로 연결되게 만들어야함
-//        quiz_cv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        quizRVAdapter.setOnItemClickListener(new QuizRVAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

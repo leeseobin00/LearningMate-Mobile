@@ -157,7 +157,7 @@
                 app:layout_constraintStart_toEndOf="@id/homework_slash2_tv"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        `
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
