@@ -1,6 +1,7 @@
 package com.example.learningmate;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,14 +36,14 @@ public class ProblemActivity extends AppCompatActivity {
         ProblemRVAdapter problemRVAdapter = new ProblemRVAdapter(problemArrayList);
         problemRecyclerView.setAdapter(problemRVAdapter);
 
-//        Button btn_next1 = (Button) findViewById(R.id.q1btnNext);
+        Button btn_submit = findViewById(R.id.quizSubmit);
 
-        //btn_next1.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // quiz2로 이동하는 것으로 바꿔야함
-        //        startActivity(intent);
-        //    }
-        //});
+//        btn_submit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }

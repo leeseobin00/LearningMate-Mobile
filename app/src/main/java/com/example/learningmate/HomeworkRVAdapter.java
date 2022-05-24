@@ -29,6 +29,7 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         MyViewHolder(View view){
             super(view);
+
             homework_name_tv = view.findViewById(R.id.homework_name_tv);
             year_tv = view.findViewById(R.id.homework_year_tv);
             month_tv = view.findViewById(R.id.homework_month_tv);
