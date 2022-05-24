@@ -40,8 +40,8 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         SearchRVAdapter.MyViewHolder myViewHolder = (SearchRVAdapter.MyViewHolder) holder;
 
-        myViewHolder.user_name.setText(userArrayList.get(position).userName);
-        myViewHolder.user_id.setText(userArrayList.get(position).userId);
+        myViewHolder.user_name.setText(userArrayList.get(position).getUserName());
+        myViewHolder.user_id.setText(userArrayList.get(position).getUserId());
 
     }
 

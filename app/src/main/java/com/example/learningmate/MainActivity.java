@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-
+        Toast.makeText(mContext, "현재 유저 id: "+User.currentUser.getUserId(), Toast.LENGTH_SHORT).show();
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
