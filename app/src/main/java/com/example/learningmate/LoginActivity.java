@@ -11,10 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONObject;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -70,13 +71,6 @@ public class LoginActivity extends AppCompatActivity {
                         postUserInfo(userID, userPass);
                     }
                 }).start();
-                // DB의 정보와 입력한 정보가 일치하면 main page로 이동
-                //if (success) {
-
-                //} else {
-                // DB의 정보와 일치하지 않으면 메세지를 띄움
-                //Toast.makeText(LoginActivity.this, "아이디 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
-                //}
             }
         });
     }
