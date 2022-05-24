@@ -13,16 +13,15 @@
         android:layout_height="70dp"
         app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp"
-        app:layout_constraintTop_toBottomOf="@id/settings_myuser_tv"
-        app:layout_constraintStart_toStartOf="@id/settings_myuser_tv">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/setting_myprofile_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/teal_700"
+            android:src="@drawable/userImg"
             app:layout_constraintTop_toTopOf = "parent"
             app:layout_constraintStart_toStartOf= "parent"/>
     </androidx.cardview.widget.CardView>
@@ -62,6 +61,7 @@
         android:text="연결"
         android:textSize="20sp"
         android:textColor="@color/teal_700"
+        android:layout_marginRight="15dp"
         app:layout_constraintTop_toTopOf="@id/setting_myuser_cv"
         app:layout_constraintBottom_toBottomOf="@id/setting_myuser_cv"
         app:layout_constraintEnd_toEndOf="parent"/>
