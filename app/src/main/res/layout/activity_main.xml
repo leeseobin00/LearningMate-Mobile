@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="나의 진행상황 보기"
+                android:text="진행상황 보기"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textSize="25sp"

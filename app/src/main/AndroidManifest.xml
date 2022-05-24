@@ -49,6 +49,9 @@
         <activity
             android:name=".AlertActivity"
             android:exported="true" />
+        <activity
+            android:name=".FileActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
