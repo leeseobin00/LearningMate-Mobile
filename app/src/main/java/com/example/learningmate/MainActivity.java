@@ -93,8 +93,14 @@ public class MainActivity extends AppCompatActivity {
         homeworkcv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), HomeworkActivity.class);
-                startActivity(intent);
+                if(User.currentUser.getIdentity() == 0) {
+                    Intent intent = new Intent(getApplicationContext(), HomeworkActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(getApplicationContext(), HomeworkMentorActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
