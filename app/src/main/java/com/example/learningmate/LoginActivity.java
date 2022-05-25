@@ -46,7 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         String url = "http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
-
+        findViewById(R.id.test_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, TestFileActivity.class));
+            }
+        });
         et_id=findViewById(R.id.editTextIdLogin);
         et_pass=findViewById(R.id.editTextPwLogin);
         btn_login=findViewById(R.id.btnLogin);
@@ -102,11 +107,12 @@ public class LoginActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
+                    Log.d("data", data);
                     if(data.contains("Wrong Password!") || data.contains("Invalid User!")){
                         Bundle bundle = new Bundle();
                         Message message = handler.obtainMessage();
                         bundle.putBoolean("login", false);
-                        message.setData(bundle);                        handler.sendMessage(message);
+                        message.setData(bundle);
                         handler.sendMessage(message);
                     }
                     JSONObject jsonObject= new JSONObject(data);
@@ -114,8 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                             jsonObject.get("uid").toString(),
                             jsonObject.get("userName").toString(),
                             Integer.parseInt(jsonObject.get("identity").toString()),
-                            jsonObject.get("rDate").toString(),
-                            jsonObject.get("pair_uid").toString()
+                            jsonObject.get("pair_uid").toString(),
+                            jsonObject.get("rDate").toString()
                     );
                     Bundle bundle = new Bundle();
                     Message message = handler.obtainMessage();
