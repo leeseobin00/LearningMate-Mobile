@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/problem_cv"
@@ -20,6 +20,7 @@
             android:id="@+id/problem_v"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:elevation="10dp"
             android:background="@color/teal_700"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,28 +31,23 @@
                 android:id="@+id/question_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
+                android:textStyle="bold"
                 android:paddingTop="15dp"
+                android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="15dp"
                 android:text="1. 이것은 문제이다"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.079"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.024" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp"/>
 
             <RadioGroup
                 android:id="@+id/q1RadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question_tv"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/question_tv">
+                android:paddingLeft="15dp">
 
                 <RadioButton
                     android:id="@+id/answer1_tv"
