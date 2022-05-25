@@ -16,20 +16,11 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         void onItemClick(View v, int position);
     }
     private HomeworkRVAdapter.OnItemClickListener mListener = null;
-    public void setOnItemClickListener(HomeworkRVAdapter.OnItemClickListener listener){
-        this.mListener = listener;
-    }
+
 
 
     private int position;
 
-    interface OnItemClickListener{
-        void onItemClick(View v, int position);
-        /*void onRemoveItem(int position);
-        void addItem(Homework homework);*/
-
-    }
-    private HomeworkRVAdapter.OnItemClickListener mListener = null;
     public void setOnItemClickListener(HomeworkRVAdapter.OnItemClickListener listener){
         this.mListener = listener;
     }
