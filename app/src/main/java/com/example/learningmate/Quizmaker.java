@@ -5,3 +5,4 @@ public class Quizmaker {
 
     public Quizmaker(String quizNum) {this.quizNum = quizNum;}
 }
+

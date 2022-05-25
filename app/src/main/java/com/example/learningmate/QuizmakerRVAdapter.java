@@ -11,14 +11,6 @@ import java.util.ArrayList;
 
 public class QuizmakerRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    interface OnItemClickListener{
-        void onItemClick(View v, int position);
-    }
-    private QuizmakerRVAdapter.OnItemClickListener mListener = null;
-    public void setOnItemClickListener(QuizmakerRVAdapter.OnItemClickListener listener){
-        this.mListener = listener;
-    }
-
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView quiz_num_tv;
 
