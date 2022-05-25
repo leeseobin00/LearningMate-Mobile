@@ -14,7 +14,7 @@
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name=".StartActivity"
+            android:name=".QuizmakerActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +51,9 @@
             android:exported="true" />
         <activity
             android:name=".FileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true" />
     </application>
 

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-
     interface OnItemClickListener{
         void onItemClick(View v, int position);
     }

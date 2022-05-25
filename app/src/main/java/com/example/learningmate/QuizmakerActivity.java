@@ -1,6 +1,9 @@
 package com.example.learningmate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,28 +13,41 @@ import java.util.ArrayList;
 
 public class QuizmakerActivity extends AppCompatActivity {
 
-    RecyclerView quizRecyclerViews;
+    RecyclerView quizmakerRecyclerViews;
     RecyclerView.LayoutManager layoutManager;
+
+    private Button btn_quizmaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizmaker2);
 
-        quizRecyclerViews = findViewById(R.id.quizmaker_rv);
-        quizRecyclerViews.setHasFixedSize(true);
+        quizmakerRecyclerViews = findViewById(R.id.quizmaker_rv);
+        quizmakerRecyclerViews.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        quizRecyclerViews.setLayoutManager(layoutManager);
+        quizmakerRecyclerViews.setLayoutManager(layoutManager);
 
-        ArrayList<Quiz> quizArrayList = new ArrayList<>();
+        ArrayList<Quizmaker> quizmakerArrayList = new ArrayList<>();
 
-        quizArrayList.add(new Quiz("퀴즈1"));
-        quizArrayList.add(new Quiz("퀴즈2"));
-        quizArrayList.add(new Quiz("퀴즈3"));
+        quizmakerArrayList.add(new Quizmaker("문제1 :"));
+        quizmakerArrayList.add(new Quizmaker("문제2 :"));
+        quizmakerArrayList.add(new Quizmaker("문제3 :"));
+        quizmakerArrayList.add(new Quizmaker("문제4 :"));
 
-        QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
-        quizRecyclerViews.setAdapter(quizRVAdapter);
+        QuizmakerRVAdapter quizmakerRVAdapter = new QuizmakerRVAdapter(quizmakerArrayList);
+        quizmakerRecyclerViews.setAdapter(quizmakerRVAdapter);
 
+        btn_quizmaker = findViewById(R.id.btnQuizmake);
+        btn_quizmaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 퀴즈의 문제와 정답 보기를 DB에 저장
+
+                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

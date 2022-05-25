@@ -62,7 +62,7 @@
         tools:layout_editor_absoluteX="50dp" />
 
     <Button
-        android:id="@+id/quizmake_btn"
+        android:id="@+id/btnQuizmake"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
