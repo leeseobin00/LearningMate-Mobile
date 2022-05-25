@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Adapter;
+
+
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +37,9 @@ public class QuizActivity extends AppCompatActivity {
 
         QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
         quizRecyclerViews.setAdapter(quizRVAdapter);
+
+
+
 
         quizRVAdapter.setOnItemClickListener(new QuizRVAdapter.OnItemClickListener(){
             @Override

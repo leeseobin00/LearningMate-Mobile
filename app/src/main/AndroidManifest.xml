@@ -12,7 +12,13 @@
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FileMentorActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestFileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizMentorActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"
@@ -23,9 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
@@ -45,15 +49,26 @@
             android:name=".ProblemActivity"
             android:exported="true" />
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeworkMentorActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".AlertActivity"
             android:exported="true" />
+        <activity
+            android:name=".FileActivity"
+            android:exported="true" />
     </application>
 
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
 </manifest>
