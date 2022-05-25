@@ -53,6 +53,12 @@
         <activity
             android:name=".FileActivity"
             android:exported="true" />
+        <activity android:name=".QuizMentorActivity"
+            android:exported="false"/>
+        <activity android:name=".QuizmakerActivity"
+            android:exported="false"/>
+        <activity android:name=".HomeworkMentorActivity"
+            android:exported="false"/>
     </application>
 
 
