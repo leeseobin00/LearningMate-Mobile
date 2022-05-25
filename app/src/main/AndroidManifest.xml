@@ -12,6 +12,15 @@
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FileMentorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestFileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizMentorActivity"
+            android:exported="false" />
+        <activity
             android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
@@ -41,6 +50,9 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeworkMentorActivity"
             android:exported="true" />
         <activity
             android:name=".RegisterActivity"
