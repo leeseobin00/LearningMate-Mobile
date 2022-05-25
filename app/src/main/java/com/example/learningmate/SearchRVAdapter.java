@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SearchRVAdapter extends RecyclerView.Adapter<SearchRVAdapter.MyViewHolder> {
 
-
+    private OnItemClickListener itemClickListener;
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView user_name;
         TextView user_id;
@@ -23,21 +23,40 @@ public class SearchRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
+    public interface OnItemClickListener{
+        void onItemClicked(int position, User user);
+    }
 
+    public void setOnItemClickListener(OnItemClickListener listener){
+        itemClickListener = listener;
+    }
     private ArrayList<User> userArrayList;
     SearchRVAdapter(ArrayList<User> list) {
         this.userArrayList = list;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user,parent,false);
-        return new SearchRVAdapter.MyViewHolder(view);
+        SearchRVAdapter.MyViewHolder viewHolder = new SearchRVAdapter.MyViewHolder(view);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = null;
+                int position = viewHolder.getAdapterPosition();
+                if(position != RecyclerView.NO_POSITION){
+                    user = userArrayList.get(position);
+                }
+                itemClickListener.onItemClicked(position, user);
+            }
+        });
+
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(SearchRVAdapter.MyViewHolder holder, int position) {
         SearchRVAdapter.MyViewHolder myViewHolder = (SearchRVAdapter.MyViewHolder) holder;
 
         myViewHolder.user_name.setText(userArrayList.get(position).getUserName());
