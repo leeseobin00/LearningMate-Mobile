@@ -2,23 +2,30 @@ package com.example.learningmate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class HomeworkActivity extends AppCompatActivity {
+public class HomeworkMentorActivity extends AppCompatActivity {
+
+    ImageButton addButton;
+    ImageButton removeButton;
 
     RecyclerView homeworkRecyclerView;
     RecyclerView.LayoutManager layoutManager;
+    HomeworkRVAdapter homeworkRVAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homework);
+        setContentView(R.layout.activity_homework_mentor);
 
         homeworkRecyclerView = findViewById(R.id.homework_rv);
         homeworkRecyclerView.setHasFixedSize(true);
@@ -31,26 +38,26 @@ public class HomeworkActivity extends AppCompatActivity {
         homeworkArrayList.add(new Homework("과제2", 22, 5, 27, 10));
         homeworkArrayList.add(new Homework("과제3", 22, 5, 27, 10));
 
-        HomeworkRVAdapter homeworkRVAdapter = new HomeworkRVAdapter(homeworkArrayList);
+        homeworkRVAdapter = new HomeworkRVAdapter(homeworkArrayList);
         homeworkRecyclerView.setAdapter(homeworkRVAdapter);
 
+        addButton = findViewById(R.id.homework_add_ib);
+        removeButton = findViewById(R.id.homework_remove_ib);
 
-
-        //file업로드 액티비티 만들면 연결
-        /*homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
-
-        //file업로드 액티비티 만들면 연결
-        homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
-
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), FileMentorActivity.class);
                 startActivity(intent);
             }
+        });
 
-        });*/
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homeworkRVAdapter.removeItem(homeworkRVAdapter.getPosition());
 
-//        });
-
+            }
+        });
     }
 }
