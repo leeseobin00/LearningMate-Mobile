@@ -14,6 +14,9 @@
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FileMentorActivity"
+            android:exported="false" />
+        <activity
             android:name=".QuizMentorActivity"
             android:exported="false" />
         <activity
@@ -54,6 +57,9 @@
             android:exported="true" />
         <activity
             android:name=".AlertActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FileActivity"
             android:exported="true" />
     </application>
 
