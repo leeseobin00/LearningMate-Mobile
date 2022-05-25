@@ -58,6 +58,8 @@ public class TestFileActivity extends AppCompatActivity {
     private DownloadManager downloadManager;
     private long id;
 
+    private String originalFileName = "archive.zip";
+
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {

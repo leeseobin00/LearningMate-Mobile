@@ -16,9 +16,34 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         void onItemClick(View v, int position);
     }
     private HomeworkRVAdapter.OnItemClickListener mListener = null;
+
+
+
+    private int position;
+
     public void setOnItemClickListener(HomeworkRVAdapter.OnItemClickListener listener){
         this.mListener = listener;
     }
+
+    /*void addItem(Homework homework){
+        homeworkArrayList.add(homework);
+        notifyDataSetChanged();
+    }*/
+
+    public void removeItem(int position){
+        homeworkArrayList.remove(position);
+        notifyItemRemoved(position);
+        notifyDataSetChanged();
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public void setPosition(int position){
+        this.position = position;
+    }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView homework_name_tv;

@@ -3,6 +3,7 @@ package com.example.learningmate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class SettingsActivity extends AppCompatActivity {
         connectUser = findViewById(R.id.setting_link_tv);
         userName = findViewById(R.id.setting_username_tv);
         disconnectUser = findViewById(R.id.setting_disconnect_tv);
+
         userName.setText(User.currentUser.getUserName() + " [" + (User.currentUser.getIdentity() == 0 ? "멘티" : "멘토") + "]");
         if (!User.currentUser.getPairId().equals("null")) {
             connectUser.setVisibility(View.INVISIBLE);
@@ -43,6 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         if (!User.currentUser.getPairId().equals("null")) {
             connectUser.setVisibility(View.INVISIBLE);
             disconnectUser.setVisibility(View.VISIBLE);
