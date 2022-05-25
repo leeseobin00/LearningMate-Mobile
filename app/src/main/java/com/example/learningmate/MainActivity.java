@@ -84,10 +84,6 @@ public class MainActivity extends AppCompatActivity {
         quizcv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-                startActivity(intent);
-
                 if(User.currentUser.getIdentity() == 0) {
                     Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
                     startActivity(intent);
