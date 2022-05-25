@@ -27,7 +27,7 @@ public class HomeworkMentorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework_mentor);
 
-        homeworkRecyclerView = findViewById(R.id.homework_rv);
+        homeworkRecyclerView = findViewById(R.id.homework_mentor_rv);
         homeworkRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         homeworkRecyclerView.setLayoutManager(layoutManager);
