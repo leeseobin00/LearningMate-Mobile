@@ -1,8 +1,6 @@
 package com.example.learningmate;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +15,7 @@ public class ProblemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem);
-
+/*
         btn_submit = findViewById(R.id.btnQuizSubmit);
 
         btn_submit.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +27,6 @@ public class ProblemActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
