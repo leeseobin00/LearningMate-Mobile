@@ -3,7 +3,10 @@ package com.example.learningmate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.Adapter;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,12 +31,14 @@ public class QuizActivity extends AppCompatActivity {
 
         ArrayList<Quiz> quizArrayList = new ArrayList<>();
 
-        quizArrayList.add(new Quiz("과제1"));
-        quizArrayList.add(new Quiz("과제2"));
-        quizArrayList.add(new Quiz("과제3"));
+        quizArrayList.add(new Quiz("퀴즈1"));
+        quizArrayList.add(new Quiz("퀴즈2"));
+        quizArrayList.add(new Quiz("퀴즈3"));
 
         QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
         quizRecyclerViews.setAdapter(quizRVAdapter);
+
+
 
 
         quizRVAdapter.setOnItemClickListener(new QuizRVAdapter.OnItemClickListener(){
@@ -43,5 +48,6 @@ public class QuizActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

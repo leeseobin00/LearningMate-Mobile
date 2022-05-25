@@ -12,7 +12,6 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="이름"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +23,6 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="ID"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/editTextName"
         app:layout_constraintStart_toStartOf="@+id/editTextName"
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
@@ -36,7 +34,6 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/editTextId"
         app:layout_constraintStart_toStartOf="@+id/editTextId"
         app:layout_constraintTop_toBottomOf="@+id/editTextId" />
@@ -48,7 +45,6 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Check Password"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/editTextPw"
         app:layout_constraintStart_toStartOf="@+id/editTextPw"
         app:layout_constraintTop_toBottomOf="@+id/editTextPw" />
