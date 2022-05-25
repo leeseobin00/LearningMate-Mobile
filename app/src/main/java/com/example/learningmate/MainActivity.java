@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
-                //Log.d("request result", postUserInfo() + "");
+        //Log.d("request result", postUserInfo() + "");
 //            }
 //        }).start();
 

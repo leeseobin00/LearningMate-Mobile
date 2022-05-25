@@ -51,6 +51,7 @@ public class FileRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+
     private ArrayList<File> fileArrayList;
     FileRVAdapter(ArrayList<File> list) {
         this.fileArrayList = list;
@@ -74,7 +75,9 @@ public class FileRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         myViewHolder.month_tv.setText(fileArrayList.get(position).month + "");
         myViewHolder.day_tv.setText(fileArrayList.get(position).day+ "");
         myViewHolder.score_tv.setText(fileArrayList.get(position).score + "");
+
     }
+
 
     @Override
     public int getItemCount() {

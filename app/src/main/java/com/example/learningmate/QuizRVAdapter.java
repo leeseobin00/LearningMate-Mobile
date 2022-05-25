@@ -23,7 +23,6 @@ public class QuizRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
 
     public  class MyViewHolder extends RecyclerView.ViewHolder{
-
         TextView quiz_name_tv;
 
         MyViewHolder(View view){
