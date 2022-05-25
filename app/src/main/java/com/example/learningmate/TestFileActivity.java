@@ -57,7 +57,9 @@ public class TestFileActivity extends AppCompatActivity {
     private Button uploadFileButton;
     private DownloadManager downloadManager;
     private long id;
+
     private String originalFileName = "archive.zip";
+
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {

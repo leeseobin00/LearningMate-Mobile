@@ -4,46 +4,29 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 
 public class ProblemActivity extends AppCompatActivity {
 
     RecyclerView problemRecyclerView;
     RecyclerView.LayoutManager layoutManager;
-
+    private Button btn_submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem);
+/*
+        btn_submit = findViewById(R.id.btnQuizSubmit);
 
-        int result = 0;
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // DB에 저장된 정답과 멘티가 입력한 정답과 비교하여 점수 계산
 
-        problemRecyclerView = findViewById(R.id.problem_rv);
-        problemRecyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        problemRecyclerView.setLayoutManager(layoutManager);
-
-        ArrayList<Problem> problemArrayList = new ArrayList<>();
-
-        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
-        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
-        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
-        problemArrayList.add(new Problem("Problem 1", "answer1", "answer2", "answer3", "answer4"));
-
-        ProblemRVAdapter problemRVAdapter = new ProblemRVAdapter(problemArrayList);
-        problemRecyclerView.setAdapter(problemRVAdapter);
-
-        Button btn_submit = findViewById(R.id.quizSubmit);
-
-//        btn_submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+                // 퀴즈 목록으로 이동함
+                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                startActivity(intent);
+            }
+        });*/
     }
 }

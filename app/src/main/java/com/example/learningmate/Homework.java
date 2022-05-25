@@ -15,4 +15,3 @@ public class Homework {
         this.score = score;
     }
 }
-
