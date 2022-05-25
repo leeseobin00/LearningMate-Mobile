@@ -11,6 +11,16 @@ import java.util.ArrayList;
 
 public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+
+    interface OnItemClickListener{
+        void onItemClick(View v, int position);
+    }
+    private HomeworkRVAdapter.OnItemClickListener mListener = null;
+    public void setOnItemClickListener(HomeworkRVAdapter.OnItemClickListener listener){
+        this.mListener = listener;
+    }
+
+
     private int position;
 
     interface OnItemClickListener{
@@ -42,6 +52,7 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void setPosition(int position){
         this.position = position;
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView homework_name_tv;

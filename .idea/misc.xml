@@ -3,14 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_file.xml" value="0.24947916666666667" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_file_mentor.xml" value="0.2" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_homework.xml" value="0.24947916666666667" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_homework_mentor.xml" value="0.176" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_quiz.xml" value="0.23385416666666667" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_quiz_mentor.xml" value="0.23385416666666667" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/activity_settings.xml" value="0.1" />
-        <entry key="..\:/seproject2/LearningMate-Mobile/app/src/main/res/layout/item_homework.xml" value="0.264" />
+
       </map>
     </option>
   </component>
