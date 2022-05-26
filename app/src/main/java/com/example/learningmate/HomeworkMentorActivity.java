@@ -114,6 +114,7 @@ public class HomeworkMentorActivity extends AppCompatActivity {
                     String data = body.string();
                     Log.d("data", data);
                     JSONArray jsonArray = new JSONArray(data);
+                    homeworkArrayList.clear();
                     for (int i = 0; i < jsonArray.length(); ++i) {
                         JSONObject jsonObject = new JSONObject(jsonArray.getString(i));
                         homeworkArrayList.add(new Homework(jsonObject.get("assign_id").toString()
@@ -138,4 +139,14 @@ public class HomeworkMentorActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getHomeworkList();
+            }
+        }).start();
+    }
 }
