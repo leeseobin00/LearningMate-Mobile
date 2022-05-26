@@ -257,8 +257,8 @@ public class RegisterActivity extends AppCompatActivity {
                             jsonObject.get("uid").toString(),
                             jsonObject.get("userName").toString(),
                             Integer.parseInt(jsonObject.get("identity").toString()),
-                            jsonObject.get("rDate").toString(),
-                            jsonObject.get("pair_uid").toString()
+                            jsonObject.get("pair_uid").toString(),
+                            jsonObject.get("rDate").toString()
                     );
                     Bundle bundle = new Bundle();
                     Message message = handler.obtainMessage();
