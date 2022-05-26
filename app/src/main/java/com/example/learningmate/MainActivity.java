@@ -1,6 +1,7 @@
 package com.example.learningmate;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        Toast.makeText(mContext, "현재 유저 id: "+User.currentUser.getUserId(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "현재 유저 id: " + User.currentUser.getUserId(), Toast.LENGTH_SHORT).show();
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
@@ -75,8 +77,13 @@ public class MainActivity extends AppCompatActivity {
         usercv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AlertActivity.class);
-                startActivity(intent);
+                if (User.currentUser.getPairId().equals("null")) {
+                    alertDialogForNotRegister();
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), AlertActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -84,15 +91,17 @@ public class MainActivity extends AppCompatActivity {
         quizcv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(User.currentUser.getIdentity() == 0) {
-                    Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
-                    startActivity(intent);
+                if (User.currentUser.getPairId().equals("null")) {
+                    alertDialogForNotRegister();
+                } else {
+                    if (User.currentUser.getIdentity() == 0) {
+                        Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), QuizMentorActivity.class);
+                        startActivity(intent);
+                    }
                 }
-                else{
-                    Intent intent = new Intent(getApplicationContext(), QuizMentorActivity.class);
-                    startActivity(intent);
-                }
-
             }
         });
 
@@ -100,13 +109,16 @@ public class MainActivity extends AppCompatActivity {
         homeworkcv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(User.currentUser.getIdentity() == 0) {
-                    Intent intent = new Intent(getApplicationContext(), HomeworkActivity.class);
-                    startActivity(intent);
-                }
-                else{
-                    Intent intent = new Intent(getApplicationContext(), HomeworkMentorActivity.class);
-                    startActivity(intent);
+                if (User.currentUser.getPairId().equals("null")) {
+                    alertDialogForNotRegister();
+                } else {
+                    if (User.currentUser.getIdentity() == 0) {
+                        Intent intent = new Intent(getApplicationContext(), HomeworkActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), HomeworkMentorActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -145,5 +157,19 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public void alertDialogForNotRegister() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("접근 불가")
+                .setMessage("등록된 " + (User.currentUser.getIdentity() == 0 ? "멘토" : "멘티") + "가 없습니다!")
+                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
