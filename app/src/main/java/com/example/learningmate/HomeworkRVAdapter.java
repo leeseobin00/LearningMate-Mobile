@@ -5,6 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -47,19 +49,25 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView homework_name_tv;
-        TextView year_tv;
-        TextView month_tv;
-        TextView day_tv;
-        TextView score_tv;
+        TextView dueDate;
+        TextView totalScore;
+        TextView gradedScore;
+//        TextView year_tv;
+//        TextView month_tv;
+//        TextView day_tv;
+//        TextView score_tv;
 
         MyViewHolder(View view){
             super(view);
 
             homework_name_tv = view.findViewById(R.id.homework_name_tv);
-            year_tv = view.findViewById(R.id.homework_year_tv);
-            month_tv = view.findViewById(R.id.homework_month_tv);
-            day_tv = view.findViewById(R.id.homework_day_tv);
-            score_tv = view.findViewById(R.id.score_tv);
+            dueDate = view.findViewById(R.id.homework_year_tv);
+            totalScore = view.findViewById(R.id.totalscore_tv);
+            gradedScore = view.findViewById(R.id.score_tv);
+//            year_tv = view.findViewById(R.id.homework_year_tv);
+//            month_tv = view.findViewById(R.id.homework_month_tv);
+//            day_tv = view.findViewById(R.id.homework_day_tv);
+//            score_tv = view.findViewById(R.id.score_tv);
 
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -92,11 +100,13 @@ public class HomeworkRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         HomeworkRVAdapter.MyViewHolder myViewHolder = (HomeworkRVAdapter.MyViewHolder) holder;
 
-        myViewHolder.homework_name_tv.setText(homeworkArrayList.get(position).homeworkName);
-        myViewHolder.year_tv.setText(homeworkArrayList.get(position).year + "");
-        myViewHolder.month_tv.setText(homeworkArrayList.get(position).month + "");
-        myViewHolder.day_tv.setText(homeworkArrayList.get(position).day+ "");
-        myViewHolder.score_tv.setText(homeworkArrayList.get(position).score + "");
+        myViewHolder.homework_name_tv.setText(homeworkArrayList.get(position).getTitle());
+        myViewHolder.dueDate.setText(homeworkArrayList.get(position).getDueDate());
+        myViewHolder.totalScore.setText(homeworkArrayList.get(position).getPerfectScore()+"");
+        myViewHolder.gradedScore.setText((homeworkArrayList.get(position).getGradedScore() == -1 ? "-" : homeworkArrayList.get(position).getGradedScore()) +"");
+//        myViewHolder.month_tv.setText(homeworkArrayList.get(position).month + "");
+//        myViewHolder.day_tv.setText(homeworkArrayList.get(position).day+ "");
+//        myViewHolder.score_tv.setText(homeworkArrayList.get(position).score + "");
 
     }
 
