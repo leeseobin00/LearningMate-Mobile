@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="과제명"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="19sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="10"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -69,7 +69,7 @@
                 android:layout_marginRight="5dp"
                 android:text="/"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/totalscore_tv"
                 app:layout_constraintEnd_toStartOf="@id/totalscore_tv" />
@@ -81,7 +81,7 @@
                 android:layout_marginRight="5dp"
                 android:text="00"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/totalscore_tv"
                 app:layout_constraintEnd_toStartOf="@id/slash_tv" />
@@ -93,7 +93,7 @@
                 android:layout_marginTop="10dp"
                 android:text="~"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -104,65 +104,13 @@
                 android:layout_height="wrap_content"
                 android:text="yy"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="10dp"
                 app:layout_constraintTop_toTopOf="@id/homework_duration_tv"
                 app:layout_constraintStart_toEndOf="@id/homework_duration_tv"/>
 
-            <TextView
-                android:id="@+id/homework_slash1_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="/"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintStart_toEndOf="@id/homework_year_tv"
-                app:layout_constraintTop_toTopOf="@id/homework_duration_tv"
-                app:layout_constraintBottom_toBottomOf="@id/homework_duration_tv"/>
 
-            <TextView
-                android:id="@+id/homework_month_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="mm"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintTop_toTopOf="@id/homework_slash1_tv"
-                app:layout_constraintStart_toEndOf="@id/homework_slash1_tv"/>
-
-            <TextView
-                android:id="@+id/homework_slash2_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="/"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintStart_toEndOf="@id/homework_month_tv"
-                app:layout_constraintTop_toTopOf="@id/homework_duration_tv"
-                app:layout_constraintBottom_toBottomOf="@id/homework_duration_tv"/>
-
-            <TextView
-                android:id="@+id/homework_day_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="dd"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                app:layout_constraintTop_toTopOf="@id/homework_slash2_tv"
-                app:layout_constraintStart_toEndOf="@id/homework_slash2_tv"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
