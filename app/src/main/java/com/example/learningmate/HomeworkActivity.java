@@ -1,5 +1,6 @@
 package com.example.learningmate;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -58,21 +59,20 @@ public class HomeworkActivity extends AppCompatActivity {
 //        homeworkArrayList.add(new Homework("과제3", 22, 5, 27, 10));
 
 
-        //file업로드 액티비티 만들면 연결
-        /*homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
+
 
         //file업로드 액티비티 만들면 연결
         homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
 
             @Override
             public void onItemClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), FileActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomeworkDetailActivity.class);
                 startActivity(intent);
             }
 
-        });*/
+        });
 
-//        });
+
         new Thread(new Runnable() {
             @Override
             public void run() {

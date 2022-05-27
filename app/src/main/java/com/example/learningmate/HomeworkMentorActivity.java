@@ -86,6 +86,17 @@ public class HomeworkMentorActivity extends AppCompatActivity {
 
             }
         });
+
+
+        homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), HomeworkDetailMentorActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
 
