@@ -27,6 +27,7 @@ public class Homework implements Serializable {
         this.gradedScore = gradedScore;
         this.perfectScore = perfectScore;
         this.fileId = fileId;
+        this.submitId = submitId;
         this.dueDate = dueDate;
     }
 
