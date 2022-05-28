@@ -1,6 +1,8 @@
 package com.example.learningmate;
 
-public class Homework {
+import java.io.Serializable;
+
+public class Homework implements Serializable {
     private String homeworkId;
     private String mentorUid;
     private String assignDate;
@@ -9,9 +11,14 @@ public class Homework {
     private int gradedScore;
     private int perfectScore;
     private int fileId;
+    private String submitId;
     private String dueDate;
 
-    public Homework(String homeworkId, String mentorUid, String assignDate, String title, String body, int gradedScore, int perfectScore, int fileId, String dueDate) {
+    public Homework(){
+
+    }
+
+    public Homework(String homeworkId, String mentorUid, String assignDate, String title, String body, int gradedScore, int perfectScore, int fileId, String submitId, String dueDate) {
         this.homeworkId = homeworkId;
         this.mentorUid = mentorUid;
         this.assignDate = assignDate;
@@ -93,5 +100,13 @@ public class Homework {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public String getSubmitId() {
+        return submitId;
+    }
+
+    public void setSubmitId(String submitId) {
+        this.submitId = submitId;
     }
 }

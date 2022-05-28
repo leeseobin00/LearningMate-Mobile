@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -46,6 +47,16 @@ public class HomeworkMentorActivity extends AppCompatActivity {
             if (msg.arg1 == 1) {
                 homeworkRVAdapter = new HomeworkRVAdapter(homeworkArrayList);
                 homeworkRecyclerView.setAdapter(homeworkRVAdapter);
+                homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
+
+                    @Override
+                    public void onItemClick(View v, int position) {
+                        Intent intent = new Intent(getApplicationContext(), HomeworkDetailMentorActivity.class);
+                        intent.putExtra("data", homeworkArrayList.get(position));
+                        startActivity(intent);
+                    }
+
+                });
                 return;
             }
         }
@@ -87,16 +98,6 @@ public class HomeworkMentorActivity extends AppCompatActivity {
             }
         });
 
-
-        homeworkRVAdapter.setOnItemClickListener(new HomeworkRVAdapter.OnItemClickListener(){
-
-            @Override
-            public void onItemClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), HomeworkDetailMentorActivity.class);
-                startActivity(intent);
-            }
-
-        });
     }
 
 
@@ -124,6 +125,15 @@ public class HomeworkMentorActivity extends AppCompatActivity {
                 if (body != null) {
                     String data = body.string();
                     Log.d("data", data);
+                    if(data.contains("No Assignment")){
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(HomeworkMentorActivity.this, "과제가 없습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        return;
+                    }
                     JSONArray jsonArray = new JSONArray(data);
                     homeworkArrayList.clear();
                     for (int i = 0; i < jsonArray.length(); ++i) {
@@ -136,6 +146,7 @@ public class HomeworkMentorActivity extends AppCompatActivity {
                                 , Integer.parseInt(jsonObject.get("graded_score").toString().equals("null") ? "-1" : jsonObject.get("graded_score").toString())
                                 , Integer.parseInt(jsonObject.get("perfect_score").toString())
                                 , Integer.parseInt(jsonObject.get("file_id").toString())
+                                , jsonObject.get("submit_id").toString()
                                 , jsonObject.get("due_date").toString()));
                     }
                     Message message = handler.obtainMessage();
@@ -151,8 +162,8 @@ public class HomeworkMentorActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onRestart() {
+        super.onRestart();
         new Thread(new Runnable() {
             @Override
             public void run() {
