@@ -68,13 +68,13 @@ public class FileRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         FileRVAdapter.MyViewHolder myViewHolder = (FileRVAdapter.MyViewHolder) holder;
 
-        myViewHolder.file_name_tv.setText(fileArrayList.get(position).fileName);
-        myViewHolder.attempt_num_tv.setText(fileArrayList.get(position).attemptNum);
-        myViewHolder.file_status_tv.setText(fileArrayList.get(position).status);
-        myViewHolder.year_tv.setText(fileArrayList.get(position).year + "");
-        myViewHolder.month_tv.setText(fileArrayList.get(position).month + "");
-        myViewHolder.day_tv.setText(fileArrayList.get(position).day+ "");
-        myViewHolder.score_tv.setText(fileArrayList.get(position).score + "");
+//        myViewHolder.file_name_tv.setText(fileArrayList.get(position).fileName);
+//        myViewHolder.attempt_num_tv.setText(fileArrayList.get(position).attemptNum);
+//        myViewHolder.file_status_tv.setText(fileArrayList.get(position).status);
+//        myViewHolder.year_tv.setText(fileArrayList.get(position).year + "");
+//        myViewHolder.month_tv.setText(fileArrayList.get(position).month + "");
+//        myViewHolder.day_tv.setText(fileArrayList.get(position).day+ "");
+//        myViewHolder.score_tv.setText(fileArrayList.get(position).score + "");
 
     }
 
