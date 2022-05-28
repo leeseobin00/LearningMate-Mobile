@@ -23,6 +23,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,16 +42,35 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
     private File file;
     private long downloadId;
     private DownloadManager downloadManager;
+    private TextView perfectScore;
+    private EditText inputScore;
+    private JSONObject submissionData;
+    private Button registerButton;
+    private TextView submitDateTitle;
+    private TextView submitDateContent;
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
+            if (msg.arg2 == 2) {
+                Toast.makeText(HomeworkDetailMentorActivity.this, "채점이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                finish();
+                return;
+            }
             if (msg.arg1 == 1) {
                 assignmentTitle.setText(homework.getTitle());
                 dueDate.setText(homework.getDueDate());
                 assignmentContent.setText(homework.getBody());
                 postedFileName.setText(file.getFileName());
+                perfectScore.setText(homework.getPerfectScore() + "");
+                if (homework.getGradedScore() != -1) {
+                    inputScore.setText(homework.getGradedScore() + "");
+                } else {
+                    inputScore.setText("-");
+                }
                 if (homework.getSubmitId() == null || homework.getSubmitId().equals("null")) {
                     submittedFileName.setText("");
+                    submitDateContent.setVisibility(View.GONE);
+                    submitDateTitle.setVisibility(View.GONE);
                 }
                 postedFileName.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -109,6 +130,23 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
         assignmentContent = findViewById(R.id.detail_homework_mentor_content_tv);
         postedFileName = findViewById(R.id.detail_mentor_content_file_name_tv);
         submittedFileName = findViewById(R.id.detail_homework_mentor_file_tv);
+        perfectScore = findViewById(R.id.detail_mentor_total_tv);
+        inputScore = findViewById(R.id.detail_mentor_grade_et);
+        registerButton = findViewById(R.id.detail_register_b);
+        submitDateTitle = findViewById(R.id.detail_submit_date_tv);
+        submitDateContent = findViewById(R.id.detail_submit_date_content_tv);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateScore();
+                    }
+                }).start();
+            }
+        });
         Intent intent = getIntent();
         if (intent != null) {
             homework = (Homework) intent.getSerializableExtra("data");
@@ -116,10 +154,92 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     getFileInfo();
+                    if (homework.getSubmitId() == null || homework.getSubmitId().equals("null")) {
+                    } else {
+                        getSubmissionInfo();
+                    }
                 }
             }).start();
+
         }
 
+    }
+
+    public void getSubmissionInfo() {
+        try {
+            String url = "http://windry.dothome.co.kr/se_learning_mate/controller/assignment_controller.php";
+            OkHttpClient client = new OkHttpClient();
+            RequestBody formBody = new FormBody.Builder()
+                    .add("submit_id", homework.getSubmitId() + "")
+                    .build();
+
+            Request request = new Request
+                    .Builder()
+                    .url(url)
+                    .post(formBody).build();
+
+            Response response = client
+                    .newCall(request)
+                    .execute();
+
+            if (response.isSuccessful()) {
+                ResponseBody body = response.body();
+                if (body != null) {
+                    String data = body.string();
+                    Log.d("data", data);
+                    if (data.contains("Not Found")) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(HomeworkDetailMentorActivity.this, "파일을 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        submissionData = new JSONObject(data);
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                submittedFileName.setText(submissionData.optString("file_name"));
+                                submitDateContent.setText(submissionData.optString("submit_date"));
+                                submittedFileName.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(getApplicationContext(), TestWebViewActivity.class);
+                                        intent.putExtra("url", submissionData.optString("file_url"));
+                                        startActivity(intent);
+                                    }
+                                });
+                                submittedFileName.setOnLongClickListener(new View.OnLongClickListener() {
+                                    @Override
+                                    public boolean onLongClick(View view) {
+                                        Uri download = Uri.parse(submissionData.optString("file_url"));
+                                        DownloadManager.Request request = new DownloadManager.Request(download);
+                                        request.setTitle(submissionData.optString("file_name"));
+                                        request.setDescription("파일 다운로드");
+                                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                                        request.setAllowedOverRoaming(true);
+                                        request.setAllowedOverMetered(true);
+
+                                        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, submissionData.optString("file_name"));
+                                        }
+                                        downloadId = downloadManager.enqueue(request);
+
+                                        IntentFilter intentFilter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+                                        registerReceiver(downloadReceiver, intentFilter);
+                                        return true;
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+            } else {
+                Log.d("response", "error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void getFileInfo() {
@@ -171,6 +291,60 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
                     }
 
                     Log.d("data", data);
+                }
+            } else {
+                Log.d("response", "error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateScore() {
+        int value = -1;
+        try {
+            if (inputScore.getText().toString().isEmpty()) {
+                value = -1;
+            } else {
+                value = Integer.parseInt(inputScore.getText().toString());
+            }
+        } catch (Exception e) {
+            return;
+        }
+        try {
+            String url = "http://windry.dothome.co.kr/se_learning_mate/controller/assignment_controller.php";
+            OkHttpClient client = new OkHttpClient();
+            RequestBody formBody = new FormBody.Builder()
+                    .add("assign_id", homework.getHomeworkId() + "")
+                    .add("score", value == -1 ? null : (value + ""))
+                    .build();
+
+            Request request = new Request
+                    .Builder()
+                    .url(url)
+                    .post(formBody).build();
+
+            Response response = client
+                    .newCall(request)
+                    .execute();
+
+            if (response.isSuccessful()) {
+                ResponseBody body = response.body();
+                if (body != null) {
+                    String data = body.string();
+                    Log.d("data", data);
+                    if (data.equals("1")) {
+                        Message message = handler.obtainMessage();
+                        message.arg2 = 2;
+                        handler.sendMessage(message);
+                    } else {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(HomeworkDetailMentorActivity.this, "채점에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
             } else {
                 Log.d("response", "error");
