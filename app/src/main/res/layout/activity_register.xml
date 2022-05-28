@@ -35,6 +35,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editTextId"
         app:layout_constraintStart_toStartOf="@+id/editTextId"
         app:layout_constraintTop_toBottomOf="@+id/editTextId" />
@@ -46,6 +47,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Check Password"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editTextPw"
         app:layout_constraintStart_toStartOf="@+id/editTextPw"
         app:layout_constraintTop_toBottomOf="@+id/editTextPw" />

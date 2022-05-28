@@ -28,7 +28,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="패스워드"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIdLogin" />
@@ -58,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
