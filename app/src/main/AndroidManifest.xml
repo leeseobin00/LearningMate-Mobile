@@ -16,14 +16,17 @@
             android:name=".TestWebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".StartActivity"
+            android:exported="true"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
@@ -57,9 +60,10 @@
         <activity
             android:name=".FileMentorActivity"
             android:exported="false" />
+
         <activity
             android:name=".QuizMentorActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".QuizmakerActivity"
             android:exported="false" />
@@ -69,10 +73,17 @@
         <activity
             android:name=".TestFileActivity"
             android:exported="false" />
+        <activity
+            android:name=".HomeworkDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeworkDetailMentorActivity"
+            android:exported="true" />
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
 
 </manifest>
