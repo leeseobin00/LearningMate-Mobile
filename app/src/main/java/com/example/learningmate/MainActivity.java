@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
-        Toast.makeText(mContext, "현재 유저 id: " + User.currentUser.getUserId(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "현재 유저 id: " + User.currentUser.getUserId(), Toast.LENGTH_SHORT).show();
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
