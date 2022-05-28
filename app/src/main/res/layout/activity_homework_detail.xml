@@ -218,17 +218,38 @@
 
             <Button
                 android:id="@+id/detail_homework_file_b"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="파일 첨부하기"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:backgroundTint="@color/teal_200"
                 android:textColor="@color/white"
                 android:layout_marginLeft="10dp"
                 app:layout_constraintStart_toEndOf="@id/detail_file_tv"
                 app:layout_constraintTop_toTopOf="@id/detail_file_tv"
                 app:layout_constraintBottom_toBottomOf="@id/detail_file_tv"/>
-
+            <TextView
+                android:id="@+id/detail_general_submit_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제출일 :"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/detail_file_tv"
+                app:layout_constraintStart_toStartOf="@id/detail_content_tv"/>
+            <TextView
+                android:id="@+id/detail_general_submit_date_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제출일"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/detail_file_tv"
+                app:layout_constraintTop_toTopOf="@id/detail_general_submit_date_tv"
+                app:layout_constraintBottom_toBottomOf="@id/detail_general_submit_date_tv"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
