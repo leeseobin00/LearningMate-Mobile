@@ -51,15 +51,15 @@ public class TestFileActivity extends AppCompatActivity {
     private String saveFolder = "/mydown";
     private String savePath;
     private String fileUrl = "http://windry.dothome.co.kr/se_learning_mate/files";
-    private String fileName = "657c6223051c6e2e2c48c43de4a3109a.zip";
-    private String fileExtend = "zip";
+    private String fileName = "ec32d6ee67cc518f47dea67c4996b88b.pdf";
+    private String fileExtend = "pdf";
     private ProgressBar progressBar;
     private Button realDownloadButton;
     private Button getFileButton;
     private Button uploadFileButton;
     private DownloadManager downloadManager;
     private long id;
-    private String originalFileName = "archive.zip";
+    private String originalFileName = "YOLOv3.pdf";
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -106,6 +106,9 @@ public class TestFileActivity extends AppCompatActivity {
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                 request.setAllowedOverRoaming(true)
                         .setAllowedOverMetered(true);
+                if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, originalFileName);
+                }
                 id = downloadManager.enqueue(request);
 
                 IntentFilter intentFilter = new IntentFilter(DownloadManager.ACTION_NOTIFICATION_CLICKED);
@@ -141,6 +144,27 @@ public class TestFileActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse(fileUrl + "/" + fileName));
+//                startActivity(intent);
+                startActivity(new Intent(TestFileActivity.this, TestWebViewActivity.class));
+                /*
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        File file = new File(fileUrl+"/"+fileName);
+                        Uri uri = Uri.fromFile(file);
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setDataAndType(uri, "application/pdf");
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                }).start();
+
+
+                 */
+                /*
                 java.io.File dir = new java.io.File(savePath);
                 if (!dir.exists()) {
                     dir.mkdir();
@@ -152,6 +176,8 @@ public class TestFileActivity extends AppCompatActivity {
                 } else {
                     showDownloadFile();
                 }
+
+                 */
             }
         });
     }
@@ -201,6 +227,8 @@ public class TestFileActivity extends AppCompatActivity {
                 byte[] tmpByte = new byte[len];
                 InputStream inputStream = connection.getInputStream();
                 java.io.File file = new java.io.File(localPath);
+                Log.d("local", localPath);
+                Log.d("path?", file.getAbsolutePath());
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
 
                 while (true) {
