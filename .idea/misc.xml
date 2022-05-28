@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/drawable/background.xml" value="0.1" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/drawable/background_splash.xml" value="0.1175" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_file.xml" value="0.1" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_file_mentor.xml" value="0.20018115942028986" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework.xml" value="0.1" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework_detail.xml" value="0.2" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework_detail_mentor.xml" value="0.2" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework_mentor.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_main.xml" value="0.1703125" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_register.xml" value="0.1" />
@@ -12,6 +19,8 @@
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_start.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test.xml" value="0.1703125" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_file.xml" value="0.1" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_web_view.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_homework.xml" value="0.15677083333333333" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_quiz.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_user.xml" value="0.16" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/xml/filepath.xml" value="0.1703125" />

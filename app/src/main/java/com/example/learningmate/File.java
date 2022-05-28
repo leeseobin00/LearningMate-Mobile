@@ -1,21 +1,87 @@
 package com.example.learningmate;
 
 public class File {
-    public String fileName;
-    public int attemptNum;
-    public String status;
-    public int year;
-    public int month;
-    public int day;
-    public int score;
+    private String fileId;
+    private String uploader;
+    private int category;
+    private String uploadDate;
+    private String fileName;
+    private String hashFileName;
+    private String fileUrl;
+    private String fileSize;
 
-    public File(String fileName, String status, int attemptNum, int year, int month, int day, int score){
+    public File(String fileId, String uploader, int category, String uploadDate, String fileName, String hashFileName, String fileUrl, String fileSize) {
+        this.fileId = fileId;
+        this.uploader = uploader;
+        this.category = category;
+        this.uploadDate = uploadDate;
         this.fileName = fileName;
-        this.attemptNum = attemptNum;
-        this.status = status;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        this.score = score;
+        this.hashFileName = hashFileName;
+        this.fileUrl = fileUrl;
+        this.fileSize = fileSize;
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public String getUploader() {
+        return uploader;
+    }
+
+    public void setUploader(String uploader) {
+        this.uploader = uploader;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public String getUploadDate() {
+        return uploadDate;
+    }
+
+    public void setUploadDate(String uploadDate) {
+        this.uploadDate = uploadDate;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getHashFileName() {
+        return hashFileName;
+    }
+
+    public void setHashFileName(String hashFileName) {
+        this.hashFileName = hashFileName;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public String getFileSize() {
+        return fileSize;
+    }
+
+    public void setFileSize(String fileSize) {
+        this.fileSize = fileSize;
     }
 }

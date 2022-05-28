@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
             boolean result = msg.getData().getBoolean("login");
             if (result) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);  // 회원가입 페이지로 이동
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return;
             }
@@ -257,8 +258,8 @@ public class RegisterActivity extends AppCompatActivity {
                             jsonObject.get("uid").toString(),
                             jsonObject.get("userName").toString(),
                             Integer.parseInt(jsonObject.get("identity").toString()),
-                            jsonObject.get("rDate").toString(),
-                            jsonObject.get("pair_uid").toString()
+                            jsonObject.get("pair_uid").toString(),
+                            jsonObject.get("rDate").toString()
                     );
                     Bundle bundle = new Bundle();
                     Message message = handler.obtainMessage();

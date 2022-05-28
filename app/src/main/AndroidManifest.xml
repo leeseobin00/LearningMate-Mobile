@@ -7,21 +7,26 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true">
-
         <activity
-            android:name=".StartActivity"
-            android:exported="true">
+            android:name=".TestWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".StartActivity"
+            android:exported="true"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
@@ -44,7 +49,6 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
@@ -53,18 +57,33 @@
         <activity
             android:name=".FileActivity"
             android:exported="true" />
-        <activity android:name=".QuizMentorActivity"
-            android:exported="false"/>
-        <activity android:name=".QuizmakerActivity"
-            android:exported="false"/>
-        <activity android:name=".HomeworkMentorActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".FileMentorActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".QuizMentorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".QuizmakerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeworkMentorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestFileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeworkDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeworkDetailMentorActivity"
+            android:exported="true" />
     </application>
-
-
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 
 </manifest>

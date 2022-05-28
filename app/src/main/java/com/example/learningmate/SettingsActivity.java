@@ -18,7 +18,12 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         connectUser = findViewById(R.id.setting_link_tv);
         userName = findViewById(R.id.setting_username_tv);
         disconnectUser = findViewById(R.id.setting_disconnect_tv);

@@ -8,6 +8,7 @@ import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -83,13 +84,18 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         new Thread(new Runnable() {
             @Override
             public void run() {
                 getAllUsers();
             }
         }).start();
-        ImageButton searchbutton = findViewById(R.id.search_ib);
         searchIdEt = findViewById(R.id.search_id_et);
 
         filteredList = new ArrayList<>();

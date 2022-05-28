@@ -25,7 +25,7 @@ public class FileActivity extends AppCompatActivity {
 
         ArrayList<File> fileArrayList = new ArrayList<>();
 
-        fileArrayList.add(new File("과제1", "제출 완료", 0, 22, 5, 27, 10));
+//        fileArrayList.add(new File("과제1", "제출 완료", 0, 22, 5, 27, 10));
 
         FileRVAdapter fileRVAdapter = new FileRVAdapter(fileArrayList);
         fileRecyclerView.setAdapter(fileRVAdapter);
