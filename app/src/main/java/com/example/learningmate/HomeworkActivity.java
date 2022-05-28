@@ -57,7 +57,12 @@ public class HomeworkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework);
-
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         homeworkRecyclerView = findViewById(R.id.homework_rv);
         homeworkRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);

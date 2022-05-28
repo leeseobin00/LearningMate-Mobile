@@ -124,6 +124,12 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework_detail_mentor);
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         assignmentTitle = findViewById(R.id.detail_homework_mentor_name_tv);
         dueDate = findViewById(R.id.detail_homework_mentor_duration_tv);

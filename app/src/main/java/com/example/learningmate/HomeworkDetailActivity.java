@@ -136,6 +136,12 @@ public class HomeworkDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homework_detail);
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         Intent intent = getIntent();
         downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         if (intent != null) {

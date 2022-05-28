@@ -61,6 +61,12 @@ public class FileMentorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_mentor);
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         selectedFile = findViewById(R.id.file_homework_file_info_tv);
         submitButton = findViewById(R.id.file_submit_b);
         title = findViewById(R.id.file_homework_name_et);

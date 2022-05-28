@@ -50,6 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
             boolean result = msg.getData().getBoolean("login");
             if (result) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);  // 회원가입 페이지로 이동
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return;
             }
