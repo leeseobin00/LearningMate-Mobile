@@ -47,9 +47,8 @@ public class MainActivity extends AppCompatActivity {
         CardView usercv = findViewById(R.id.home_user_cv);
         CardView quizcv = findViewById(R.id.home_quiz_cv);
         CardView homeworkcv = findViewById(R.id.home_homework_cv);
+        CardView librarycv = findViewById(R.id.home_library_cv);
 
-        //캘린더뷰
-        calendarView = findViewById(R.id.home_calendar);
 
         //내정보
         TextView settingsView = findViewById(R.id.home_userinfo_tv);
@@ -64,15 +63,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        DateFormat formatter = new SimpleDateFormat("yyyy년 mm월 dd일");
-        Date date = new Date(calendarView.getDate());
-
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int date) {
-
-            }
-        });
 
         usercv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +107,23 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else {
                         Intent intent = new Intent(getApplicationContext(), HomeworkMentorActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
+
+        librarycv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (User.currentUser.getPairId().equals("null")) {
+                    alertDialogForNotRegister();
+                } else {
+                    if (User.currentUser.getIdentity() == 0) {
+                        Intent intent = new Intent(getApplicationContext(), LibraryActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), LibraryMentorActivity.class);
                         startActivity(intent);
                     }
                 }
