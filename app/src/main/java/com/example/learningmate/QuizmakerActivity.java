@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,6 +45,14 @@ public class QuizmakerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // 퀴즈의 문제와 정답 보기를 DB에 저장
 
+                Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton back_ib = findViewById(R.id.back_ib);
+        back_ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);
                 startActivity(intent);
             }

@@ -9,15 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import org.json.JSONObject;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -126,6 +128,14 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }).start();
 
+            }
+        });
+        ImageButton back_ib = findViewById(R.id.back_ib);
+        back_ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                startActivity(intent);
             }
         });
     }

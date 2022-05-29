@@ -3,10 +3,7 @@ package com.example.learningmate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import android.widget.Adapter;
-
-
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,13 +35,18 @@ public class QuizActivity extends AppCompatActivity {
         QuizRVAdapter quizRVAdapter = new QuizRVAdapter(quizArrayList);
         quizRecyclerViews.setAdapter(quizRVAdapter);
 
-
-
-
         quizRVAdapter.setOnItemClickListener(new QuizRVAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(), ProblemActivity.class);
+                startActivity(intent);
+            }
+        });
+        ImageButton back_ib = findViewById(R.id.back_ib);
+        back_ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
