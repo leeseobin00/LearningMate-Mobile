@@ -138,4 +138,15 @@ public class HomeworkActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                getHomeworkList();
+            }
+        }).start();
+    }
 }
