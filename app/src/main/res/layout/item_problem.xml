@@ -8,11 +8,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/problem_cv"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         app:cardCornerRadius="20dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -21,11 +22,13 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:elevation="10dp"
-            android:background="@color/teal_700"/>
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            >
 
             <TextView
                 android:id="@+id/question_tv"
@@ -40,12 +43,25 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/point_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="15dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:text="점수"
+                app:layout_constraintTop_toBottomOf="@id/question_tv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="15sp"/>
 
             <RadioGroup
                 android:id="@+id/q1RadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/question_tv"
+                app:layout_constraintTop_toBottomOf="@+id/point_tv"
                 app:layout_constraintStart_toStartOf="parent"
                 android:paddingLeft="15dp">
 

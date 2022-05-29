@@ -13,6 +13,11 @@
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework_mentor.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_main.xml" value="0.1703125" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_problem.xml" value="0.264" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_quiz.xml" value="0.16" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_quiz_mentor.xml" value="0.128" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_quizmaker.xml" value="0.28164556962025317" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_quizmaker2.xml" value="0.16" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_search.xml" value="0.1157548125633232" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_settings.xml" value="0.14945652173913043" />
@@ -21,7 +26,9 @@
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_file.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_web_view.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_homework.xml" value="0.15677083333333333" />
-        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_quiz.xml" value="0.1" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_problem.xml" value="0.2" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_quiz.xml" value="0.2" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_quizmaker.xml" value="0.264" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_user.xml" value="0.16" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/xml/filepath.xml" value="0.1703125" />
       </map>
