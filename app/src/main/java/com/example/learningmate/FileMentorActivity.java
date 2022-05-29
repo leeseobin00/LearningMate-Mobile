@@ -48,6 +48,7 @@ public class FileMentorActivity extends AppCompatActivity {
     private EditText body;
     private EditText score;
     public static final int REQUEST_CODE = 50;
+    private boolean isSelectFile = false;
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -77,6 +78,14 @@ public class FileMentorActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (dueDate.getText().toString().length() != 12) {
+                    Toast.makeText(FileMentorActivity.this, "날짜형식이 맞지 않습니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isSelectFile) {
+                    Toast.makeText(FileMentorActivity.this, "파일이 선택되지 않았습니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 File sourceFile = new File(filePath);
                 Log.d("path", filePath);
                 Log.d("name", fileName);
@@ -151,11 +160,13 @@ public class FileMentorActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
                 filePath = getDriveFilePath(uri, this);
+                isSelectFile = true;
                 Message message = handler.obtainMessage();
                 message.arg1 = 1;
                 handler.sendMessage(message);
             } else if (resultCode == RESULT_CANCELED) {
                 selectedFile.setText("선택되지 않음");
+                isSelectFile = false;
             }
         }
     }
