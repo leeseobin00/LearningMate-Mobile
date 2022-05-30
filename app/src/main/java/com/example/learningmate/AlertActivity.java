@@ -10,9 +10,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.learningmate.adapter.LibraryRVAdapter;
-import com.example.learningmate.mentor_activity.LibraryMentorActivity;
-import com.example.learningmate.model.Library;
 import com.example.learningmate.model.User;
 
 import org.json.JSONArray;
@@ -30,6 +27,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AlertActivity extends AppCompatActivity {
 
@@ -43,6 +41,7 @@ public class AlertActivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             checkSum += msg.arg1;
             if (checkSum == 2) {
+                Collections.sort(alertArrayList, Collections.reverseOrder());
                 alertRVAdapter = new AlertRVAdapter(alertArrayList);
                 alertRecyclerViews.setAdapter(alertRVAdapter);
             }
