@@ -1,6 +1,6 @@
 package com.example.learningmate;
 
-public class Alert {
+public class Alert implements Comparable<Alert>{
     private String alertName;
     private String uploadDate;
     private String dueDate;
@@ -59,5 +59,10 @@ public class Alert {
 
     public void setViewType(int viewType) {
         this.viewType = viewType;
+    }
+
+    @Override
+    public int compareTo(Alert alert) {
+        return this.uploadDate.compareTo(alert.getUploadDate());
     }
 }
