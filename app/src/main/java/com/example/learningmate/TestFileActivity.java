@@ -147,7 +147,7 @@ public class TestFileActivity extends AppCompatActivity {
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse(fileUrl + "/" + fileName));
 //                startActivity(intent);
-                startActivity(new Intent(TestFileActivity.this, TestWebViewActivity.class));
+                startActivity(new Intent(TestFileActivity.this, FilePreviewWebViewActivity.class));
                 /*
                 new Thread(new Runnable() {
                     @Override

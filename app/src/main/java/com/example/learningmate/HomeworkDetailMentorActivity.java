@@ -28,7 +28,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HomeworkDetailMentorActivity extends AppCompatActivity {
@@ -75,7 +74,7 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
                 postedFileName.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(), TestWebViewActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), FilePreviewWebViewActivity.class);
                         intent.putExtra("url", file.getFileUrl());
                         startActivity(intent);
                     }
@@ -210,7 +209,7 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
                                 submittedFileName.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        Intent intent = new Intent(getApplicationContext(), TestWebViewActivity.class);
+                                        Intent intent = new Intent(getApplicationContext(), FilePreviewWebViewActivity.class);
                                         intent.putExtra("url", submissionData.optString("file_url"));
                                         startActivity(intent);
                                     }

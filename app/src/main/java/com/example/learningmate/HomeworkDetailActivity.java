@@ -87,7 +87,7 @@ public class HomeworkDetailActivity extends AppCompatActivity {
                 postedFileName.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(), TestWebViewActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), FilePreviewWebViewActivity.class);
                         intent.putExtra("url", file.getFileUrl());
                         startActivity(intent);
                     }
