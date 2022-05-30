@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/drawable/background.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/drawable/background_splash.xml" value="0.1175" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_alert.xml" value="0.10258358662613981" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_alert_mentor.xml" value="0.10258358662613981" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_file.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_file_mentor.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_homework.xml" value="0.1" />
@@ -28,6 +30,9 @@
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test.xml" value="0.1703125" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_file.xml" value="0.1" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/activity_test_web_view.xml" value="0.12335359675785208" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_alert.xml" value="0.2" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_alert_m.xml" value="0.264" />
+        <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_alertmentor.xml" value="0.2" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_homework.xml" value="0.15677083333333333" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_library.xml" value="0.2" />
         <entry key="..\:/Users/SeoungGun/AndroidStudioProjects/LearningMate/app/src/main/res/layout/item_problem.xml" value="0.2" />

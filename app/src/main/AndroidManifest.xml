@@ -64,6 +64,8 @@
         <activity
             android:name=".AlertActivity"
             android:exported="true" />
+        <activity android:name=".AlertMentorActivity"
+            android:exported="false"/>
         <activity
             android:name=".mentee_activity.FileActivity"
             android:exported="true" />
