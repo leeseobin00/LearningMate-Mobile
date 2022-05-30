@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginRight="20dp"
         app:cardCornerRadius="10dp"
         android:elevation="20dp"
@@ -79,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="만점"
                     android:inputType="number"
                     android:paddingLeft="15dp" />
             </LinearLayout>
@@ -204,7 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="정답 번호"
+                    android:hint="정답 내용"
                     android:paddingLeft="15dp" />
             </LinearLayout>
         </LinearLayout>
