@@ -15,14 +15,20 @@ public class LibraryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     interface OnItemClickListener{
         void onItemClick(View v, int position);
     }
+    interface OnItemLongClickListerner{
+        void onItemLongClick(View v, int position);
+    }
     private LibraryRVAdapter.OnItemClickListener mListener = null;
-
+    private LibraryRVAdapter.OnItemLongClickListerner longClickListerner = null;
     private int position;
 
     public void setOnItemClickListener(LibraryRVAdapter.OnItemClickListener listener){
         this.mListener = listener;
     }
 
+    public void setOnItemLongClickListener(LibraryRVAdapter.OnItemLongClickListerner listener){
+        this.longClickListerner = listener;
+    }
     public int getPosition(){
         return position;
     }
@@ -43,7 +49,6 @@ public class LibraryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             libraryName = view.findViewById(R.id.library_name_tv);
             fileName = view.findViewById(R.id.library_file_name_tv);
 
-
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
@@ -53,6 +58,19 @@ public class LibraryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                             mListener.onItemClick(view, position);
                         }
                     }
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION){
+                        if(longClickListerner != null){
+                            longClickListerner.onItemLongClick(view, position);
+                        }
+                    }
+                    return true;
                 }
             });
         }
@@ -76,7 +94,7 @@ public class LibraryRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         LibraryRVAdapter.MyViewHolder myViewHolder = (LibraryRVAdapter.MyViewHolder) holder;
 
-        myViewHolder.libraryName.setText(libraryArrayList.get(position).getLibraryNamey());
+        myViewHolder.libraryName.setText(libraryArrayList.get(position).getTitle());
         myViewHolder.fileName.setText(libraryArrayList.get(position).getFileName());
     }
 
