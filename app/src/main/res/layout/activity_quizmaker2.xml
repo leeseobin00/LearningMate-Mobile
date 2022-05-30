@@ -23,23 +23,23 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <LinearLayout
-
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
             android:layout_marginTop="50dp"
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp"
             android:paddingBottom="15dp"
-            android:text="퀴즈명 : "
+            android:text="퀴즈명    : "
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,9 +59,11 @@
             android:textStyle="bold" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/quizmaker_time_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
         tools:ignore="MissingConstraints">
         <TextView
             android:layout_width="wrap_content"
@@ -96,6 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@color/white"
         android:text="Quiz 생성"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
