@@ -73,8 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 if (User.currentUser.getPairId().equals("null")) {
                     alertDialogForNotRegister();
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), AlertActivity.class);
-                    startActivity(intent);
+                    if(User.currentUser.getIdentity() == 0){
+                        Intent intent = new Intent(getApplicationContext(), AlertActivity.class);
+                        startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), AlertMentorActivity.class);
+                        startActivity(intent);
+                    }
                 }
 
             }
