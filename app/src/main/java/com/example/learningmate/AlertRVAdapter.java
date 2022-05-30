@@ -65,7 +65,7 @@ public class AlertRVAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if(holder instanceof AssignmentHolder){
             AssignmentHolder myViewHolder = (AssignmentHolder) holder;
             myViewHolder.assignName.setText(alertArrayList.get(position).getAlertName());
-            myViewHolder.date.setText("[업로드 날짜: "+alertArrayList.get(position).getUploadDate()+"]");
+            myViewHolder.date.setText("[과제 등록 날짜: "+alertArrayList.get(position).getUploadDate()+"]");
             myViewHolder.due.setText(alertArrayList.get(position).getDueDate());
             myViewHolder.state.setText(alertArrayList.get(position).isState() ? "제출 완료" : "미제출");
         }
