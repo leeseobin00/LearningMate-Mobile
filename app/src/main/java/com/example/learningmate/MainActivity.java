@@ -8,16 +8,19 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import com.example.learningmate.common_activity.SettingsActivity;
+import com.example.learningmate.mentee_activity.HomeworkActivity;
+import com.example.learningmate.mentee_activity.LibraryActivity;
+import com.example.learningmate.mentee_activity.QuizActivity;
+import com.example.learningmate.mentor_activity.HomeworkMentorActivity;
+import com.example.learningmate.mentor_activity.LibraryMentorActivity;
+import com.example.learningmate.mentor_activity.QuizMentorActivity;
+import com.example.learningmate.model.User;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;

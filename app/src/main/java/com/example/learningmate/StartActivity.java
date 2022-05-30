@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.learningmate.common_activity.LoginActivity;
+import com.example.learningmate.common_activity.RegisterActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class StartActivity extends AppCompatActivity {

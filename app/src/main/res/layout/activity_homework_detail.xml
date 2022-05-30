@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/navigation"
-    tools:context=".HomeworkDetailActivity">
+    tools:context=".mentee_activity.HomeworkDetailActivity">
 
     <ImageButton
         android:id="@+id/back_ib"

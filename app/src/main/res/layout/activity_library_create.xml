@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LibraryCreateActivity">
+    tools:context=".mentor_activity.LibraryCreateActivity">
     <ImageButton
         android:id="@+id/back_ib"
         android:layout_width="30dp"
