@@ -14,7 +14,7 @@ public class SettingsActivity extends AppCompatActivity {
     private TextView connectUser;
     private TextView userName;
     private TextView disconnectUser;
-
+    private TextView logoutTextView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
@@ -22,6 +22,16 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        logoutTextView = findViewById(R.id.setting_logout_tv);
+        logoutTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User.currentUser = null;
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
             }
         });
         connectUser = findViewById(R.id.setting_link_tv);
