@@ -13,7 +13,16 @@
         android:theme="@style/Theme.LearningMate"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".TestWebViewActivity"
+            android:name=".mentor_activity.LibraryCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mentor_activity.LibraryMentorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mentee_activity.LibraryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".common_activity.FilePreviewWebViewActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -21,69 +30,70 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".StartActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".QuizActivity"
+            android:name=".common_activity.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".mentee_activity.QuizActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeworkActivity"
+            android:name=".common_activity.SearchActivity"
             android:exported="true" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".mentee_activity.HomeworkActivity"
             android:exported="true" />
         <activity
-            android:name=".ProblemActivity"
+            android:name=".common_activity.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".mentee_activity.ProblemActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".common_activity.RegisterActivity"
             android:exported="true" />
         <activity
             android:name=".AlertActivity"
             android:exported="true" />
+        <activity android:name=".AlertMentorActivity"
+            android:exported="false"/>
         <activity
-            android:name=".FileActivity"
+            android:name=".mentee_activity.FileActivity"
             android:exported="true" />
         <activity
-            android:name=".FileMentorActivity"
+            android:name=".mentor_activity.FileMentorActivity"
             android:exported="false" />
-
         <activity
-            android:name=".QuizMentorActivity"
+            android:name=".mentor_activity.QuizMentorActivity"
             android:exported="true" />
         <activity
-            android:name=".QuizmakerActivity"
+            android:name=".mentor_activity.QuizMakerActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeworkMentorActivity"
+            android:name=".mentor_activity.HomeworkMentorActivity"
             android:exported="false" />
         <activity
             android:name=".TestFileActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeworkDetailActivity"
+            android:name=".mentee_activity.HomeworkDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".HomeworkDetailMentorActivity"
+            android:name=".mentor_activity.HomeworkDetailMentorActivity"
             android:exported="true" />
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>

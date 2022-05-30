@@ -36,8 +36,8 @@ public class AlertMentorRVAdapter  extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         AlertMentorRVAdapter.MyViewHolder myViewHolder = (AlertMentorRVAdapter.MyViewHolder) holder;
 
-        myViewHolder.alertmentor_name_tv.setText(alertMentorArrayList.get(position).alertName);
-        myViewHolder.statementor_tv.setText(alertMentorArrayList.get(position).state + "");
+        myViewHolder.alertmentor_name_tv.setText(alertMentorArrayList.get(position).getAlertName());
+        myViewHolder.statementor_tv.setText(alertMentorArrayList.get(position).getDate() + "");
     }
 
     @Override

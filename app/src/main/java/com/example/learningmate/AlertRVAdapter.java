@@ -1,29 +1,40 @@
 package com.example.learningmate;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class AlertRVAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView alert_name_tv;
-        TextView year_tv;
-        TextView month_tv;
-        TextView day_tv;
-        TextView state_tv;
+    public static class AssignmentHolder extends RecyclerView.ViewHolder{
+        TextView assignName;
+        TextView date;
+        TextView due;
+        TextView state;
 
-        MyViewHolder(View view){
+        public AssignmentHolder(View view){
             super(view);
-            alert_name_tv = view.findViewById(R.id.alert_name_tv);
-            year_tv = view.findViewById(R.id.alert_year_tv);
-            month_tv = view.findViewById(R.id.alert_month_tv);
-            day_tv = view.findViewById(R.id.alert_day_tv);
-            state_tv = view.findViewById(R.id.state_tv);
+            assignName = view.findViewById(R.id.alert_name_tv);
+            date = view.findViewById(R.id.alert_date_tv);
+            due = view.findViewById(R.id.alert_year_tv);
+            state = view.findViewById(R.id.state_tv);
+        }
+    }
+
+    public static class MaterialHolder extends RecyclerView.ViewHolder{
+        TextView assignName;
+        TextView date;
+        public MaterialHolder(View view){
+            super(view);
+            assignName = view.findViewById(R.id.alert_name_tv);
+            date = view.findViewById(R.id.alert_date_tv);
         }
     }
 
@@ -34,19 +45,35 @@ public class AlertRVAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_alert,parent,false);
-        return new AlertRVAdapter.MyViewHolder(view);
+        View view;
+        Context context = parent.getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if(viewType == 0){
+            view = inflater.inflate(R.layout.item_alert, parent, false);
+            return new AssignmentHolder(view);
+        }
+        else if(viewType == 1){
+            view = inflater.inflate(R.layout.item_alert_m, parent, false);
+            return new MaterialHolder(view);
+        }
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_alert,parent,false);
+        return new AssignmentHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AlertRVAdapter.MyViewHolder myViewHolder = (AlertRVAdapter.MyViewHolder) holder;
-
-        myViewHolder.alert_name_tv.setText(alertArrayList.get(position).alertName);
-        myViewHolder.year_tv.setText(alertArrayList.get(position).year + "");
-        myViewHolder.month_tv.setText(alertArrayList.get(position).month + "");
-        myViewHolder.day_tv.setText(alertArrayList.get(position).day+ "");
-        myViewHolder.state_tv.setText(alertArrayList.get(position).state + "");
+        if(holder instanceof AssignmentHolder){
+            AssignmentHolder myViewHolder = (AssignmentHolder) holder;
+            myViewHolder.assignName.setText(alertArrayList.get(position).getAlertName());
+            myViewHolder.date.setText("[과제 등록 날짜: "+alertArrayList.get(position).getUploadDate()+"]");
+            myViewHolder.due.setText(alertArrayList.get(position).getDueDate());
+            myViewHolder.state.setText(alertArrayList.get(position).isState() ? "제출 완료" : "미제출");
+        }
+        else if(holder instanceof MaterialHolder){
+            MaterialHolder myViewHolder = (MaterialHolder) holder;
+            myViewHolder.assignName.setText(alertArrayList.get(position).getAlertName());
+            myViewHolder.date.setText("[업로드 날짜: "+alertArrayList.get(position).getUploadDate()+"]");
+        }
     }
 
     @Override
@@ -54,4 +81,8 @@ public class AlertRVAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return alertArrayList.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return alertArrayList.get(position).getViewType();
+    }
 }
