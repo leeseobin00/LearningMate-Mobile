@@ -13,7 +13,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class TestWebViewActivity extends AppCompatActivity {
+public class FilePreviewWebViewActivity extends AppCompatActivity {
     private final String baseViewer = "https://drive.google.com/viewerng/viewer?embedded=true&url=";
     private ProgressDialog progressDialog;
 
