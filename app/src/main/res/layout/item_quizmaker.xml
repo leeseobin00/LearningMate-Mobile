@@ -3,19 +3,18 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="15dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/problem1_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="20dp"
         app:cardCornerRadius="10dp"
         android:elevation="20dp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <View
@@ -41,6 +40,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="15dp"
                     android:text="문제1  :"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +71,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="15dp"
                     android:text="점수    :"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -95,6 +96,7 @@
                     android:paddingLeft="15dp"
                     android:paddingTop="15dp"
                     android:paddingRight="15dp"
+                    android:textColor="#000000"
                     android:paddingBottom="15dp"
                     android:text="보기1  :"
                     android:textSize="18sp"
@@ -122,6 +124,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="15dp"
                     android:text="보기2  :"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +150,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="15dp"
                     android:text="보기3  :"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -173,6 +177,7 @@
                     android:paddingBottom="15dp"
                     android:text="보기4  :"
                     android:textSize="18sp"
+                    android:textColor="#000000"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -197,6 +202,7 @@
                     android:paddingRight="15dp"
                     android:paddingBottom="15dp"
                     android:text="정답    :"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
