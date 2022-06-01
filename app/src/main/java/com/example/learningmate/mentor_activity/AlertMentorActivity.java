@@ -1,19 +1,16 @@
-package com.example.learningmate;
+package com.example.learningmate.mentor_activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.learningmate.adapter.QuizRVAdapter;
-import com.example.learningmate.mentee_activity.ProblemActivity;
-import com.example.learningmate.mentee_activity.QuizActivity;
-import com.example.learningmate.model.Quiz;
+import com.example.learningmate.adapter.AlertMentorRVAdapter;
+import com.example.learningmate.R;
+import com.example.learningmate.model.AlertMentor;
 import com.example.learningmate.model.User;
 
 import org.json.JSONArray;

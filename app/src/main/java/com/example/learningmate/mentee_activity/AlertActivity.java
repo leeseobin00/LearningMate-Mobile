@@ -1,4 +1,4 @@
-package com.example.learningmate;
+package com.example.learningmate.mentee_activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.learningmate.adapter.AlertRVAdapter;
+import com.example.learningmate.MainActivity;
+import com.example.learningmate.R;
+import com.example.learningmate.model.Alert;
 import com.example.learningmate.model.User;
 
 import org.json.JSONArray;

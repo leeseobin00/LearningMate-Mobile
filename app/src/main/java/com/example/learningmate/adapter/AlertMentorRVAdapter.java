@@ -1,9 +1,12 @@
-package com.example.learningmate;
+package com.example.learningmate.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.learningmate.R;
+import com.example.learningmate.model.AlertMentor;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +25,7 @@ public class AlertMentorRVAdapter  extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     private ArrayList<AlertMentor> alertMentorArrayList;
-    AlertMentorRVAdapter(ArrayList<AlertMentor> list) {
+    public AlertMentorRVAdapter(ArrayList<AlertMentor> list) {
         this.alertMentorArrayList = list;
     }
 
