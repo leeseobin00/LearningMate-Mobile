@@ -150,7 +150,7 @@
             <TextView
                 android:id="@+id/detail_homework_mentor_content_tv"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:text="내용입니다"
                 android:textSize="17sp"
                 android:textColor="@color/black"
@@ -176,7 +176,7 @@
             <TextView
                 android:id="@+id/detail_mentor_grade_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="성적     :"
                 android:textSize="17sp"
                 android:textColor="@color/black"
@@ -186,6 +186,10 @@
                 app:layout_constraintTop_toBottomOf="@id/detail_homework_mentor_content_tv"/>
 
             <EditText
+                android:paddingLeft="0dp"
+                android:paddingTop="0dp"
+                android:paddingRight="0dp"
+                android:paddingBottom="15dp"
                 android:gravity="center"
                 android:id="@+id/detail_mentor_grade_et"
                 android:layout_width="55dp"
@@ -284,8 +288,8 @@
         android:id="@+id/detail_register_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="등록"
-        android:textSize="17sp"
+        android:text="성적 반영하기"
+        android:textSize="15sp"
         android:backgroundTint="@color/teal_700"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
