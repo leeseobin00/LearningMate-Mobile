@@ -150,6 +150,10 @@ public class HomeworkDetailMentorActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(inputScore.getText().toString().isEmpty()){
+                    Toast.makeText(HomeworkDetailMentorActivity.this, "점수를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

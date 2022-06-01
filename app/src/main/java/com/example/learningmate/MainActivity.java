@@ -10,9 +10,11 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.example.learningmate.common_activity.SettingsActivity;
+import com.example.learningmate.mentee_activity.AlertActivity;
 import com.example.learningmate.mentee_activity.HomeworkActivity;
 import com.example.learningmate.mentee_activity.LibraryActivity;
 import com.example.learningmate.mentee_activity.QuizActivity;
+import com.example.learningmate.mentor_activity.AlertMentorActivity;
 import com.example.learningmate.mentor_activity.HomeworkMentorActivity;
 import com.example.learningmate.mentor_activity.LibraryMentorActivity;
 import com.example.learningmate.mentor_activity.QuizMentorActivity;

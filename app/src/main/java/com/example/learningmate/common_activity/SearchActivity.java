@@ -34,12 +34,11 @@ import okhttp3.ResponseBody;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
-
-    ArrayList<User> filteredList, userArrayList;
-    SearchRVAdapter searchRVAdapter;
-    RecyclerView userRecyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    EditText searchIdEt;
+    private ArrayList<User> filteredList, userArrayList;
+    private SearchRVAdapter searchRVAdapter;
+    private RecyclerView userRecyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private EditText searchIdEt;
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -50,6 +49,7 @@ public class SearchActivity extends AppCompatActivity {
             }
             if (msg.arg1 == 1) {
                 searchRVAdapter = new SearchRVAdapter(userArrayList);
+                userRecyclerView.setAdapter(searchRVAdapter);
                 searchRVAdapter.setOnItemClickListener(new SearchRVAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClicked(int position, User user) {
@@ -62,7 +62,6 @@ public class SearchActivity extends AppCompatActivity {
                                         new Thread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                Log.d("target", user.getUserId());
                                                 updatePairRequest(user.getUserId());
                                             }
                                         }).start();
@@ -78,8 +77,6 @@ public class SearchActivity extends AppCompatActivity {
                         alertDialog.show();
                     }
                 });
-                userRecyclerView.setAdapter(searchRVAdapter);
-
             }
         }
     };
@@ -93,28 +90,19 @@ public class SearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+        searchIdEt = findViewById(R.id.search_id_et);
+        filteredList = new ArrayList<>();
+        userArrayList = new ArrayList<>();
+        userRecyclerView = findViewById(R.id.search_rv);
+        userRecyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        userRecyclerView.setLayoutManager(layoutManager);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 getAllUsers();
             }
         }).start();
-        searchIdEt = findViewById(R.id.search_id_et);
-
-        filteredList = new ArrayList<>();
-        userArrayList = new ArrayList<>();
-
-        userRecyclerView = findViewById(R.id.search_rv);
-        userRecyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        userRecyclerView.setLayoutManager(layoutManager);
-
-
-//        userArrayList.add(new User("이서현", "chaconne"));
-//        userArrayList.add(new User("이서빈", "choco"));
-//        userArrayList.add(new User("신승건", "seunggun"));
-//        userArrayList.add(new User("이민아", "minah"));
-
         searchIdEt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -130,19 +118,12 @@ public class SearchActivity extends AppCompatActivity {
             public void afterTextChanged(Editable editable) {
                 String searchId = searchIdEt.getText().toString();
                 searchFilter(searchId);
-
             }
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
     public void searchFilter(String searchText) {
         filteredList.clear();
-
         for (int i = 0; i < userArrayList.size(); i++) {
             if (userArrayList.get(i).getUserId().toLowerCase().contains(searchText.toLowerCase())) {
                 filteredList.add(userArrayList.get(i));
@@ -185,7 +166,6 @@ public class SearchActivity extends AppCompatActivity {
                     Message message = handler.obtainMessage();
                     message.arg1 = 1;
                     handler.sendMessage(message);
-
                 }
             } else {
                 Log.d("response", "error");
@@ -217,16 +197,12 @@ public class SearchActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
-                    Log.d("pair",data);
                     if (data.equals("2")) {
                         User.currentUser.setPairId(targetUid);
                         Message message = handler.obtainMessage();
                         message.arg1 = 2;
                         handler.sendMessage(message);
-                    } else {
-
                     }
-
                 }
             } else {
                 Log.d("response", "error");

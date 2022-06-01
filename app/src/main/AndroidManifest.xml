@@ -62,9 +62,9 @@
             android:name=".common_activity.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".AlertActivity"
+            android:name=".mentee_activity.AlertActivity"
             android:exported="true" />
-        <activity android:name=".AlertMentorActivity"
+        <activity android:name=".mentor_activity.AlertMentorActivity"
             android:exported="false"/>
         <activity
             android:name=".mentee_activity.FileActivity"

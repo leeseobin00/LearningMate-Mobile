@@ -9,9 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.learningmate.MainActivity;
@@ -20,7 +18,6 @@ import com.example.learningmate.StartActivity;
 import com.example.learningmate.model.User;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
@@ -35,10 +32,9 @@ import okhttp3.ResponseBody;
 public class RegisterActivity extends AppCompatActivity {
     private EditText et_id, et_pass, et_name, et_passck;
     private Button btn_register, btn_validate;
-    private RadioGroup radioGroup;
-    private RadioButton btn_radio1, btn_radio2, btn_radio3;
-    private AlertDialog dialog;
+    private RadioButton btn_radio1, btn_radio2;
     private boolean validate = false;
+    private boolean isCheckedDuplicate = false;
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -61,19 +57,15 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
                 return;
             }
-            int chkResult = msg.arg1;
 
+            int chkResult = msg.arg1;
             if (chkResult == 1) {
                 String message = "이미 존재하는 아이디입니다.";
                 Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
-                return;
             } else if (chkResult == 0) {
                 String message = "사용 가능한 아이디입니다.";
                 Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_SHORT).show();
-                return;
             }
-
-
         }
     };
 
@@ -86,57 +78,73 @@ public class RegisterActivity extends AppCompatActivity {
         et_id = findViewById(R.id.editTextId);
         et_pass = findViewById(R.id.editTextPw);
         et_passck = findViewById(R.id.editTextPwCheck);
-
+        btn_register = findViewById(R.id.btnRegister2);
+        btn_radio1 = findViewById(R.id.radioBtn1);
+        btn_radio2 = findViewById(R.id.radioBtn2);
         btn_validate = findViewById(R.id.btnValidate);
 
         btn_validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (et_id.getText().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "아이디를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        isCheckedDuplicate = true;
                         boolean result = getCheckDuplicateUid(et_id.getText().toString());
                     }
                 }).start();
             }
         });
-        btn_register = findViewById(R.id.btnRegister2);
-
-        radioGroup = findViewById(R.id.radioGroup);
-        btn_radio1 = findViewById(R.id.radioBtn1);
-        btn_radio2 = findViewById(R.id.radioBtn2);
-
-        String id = et_id.getText().toString();
-        String pw = et_pass.getText().toString();
-        String name = et_name.getText().toString();
-
-        if (btn_radio1.isChecked()) {
-            ((MainActivity) MainActivity.mContext).postUserInfo(id, pw, name, "1");
-        } else if (btn_radio2.isChecked()) {
-            ((MainActivity) MainActivity.mContext).postUserInfo(id, pw, name, "0");
-        }
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (et_name.getText().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "이름을 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (et_id.getText().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "아이디를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (et_pass.getText().toString().isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "비밀번호를 입력해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!btn_radio1.isChecked() && !btn_radio2.isChecked()) {
+                    Toast.makeText(RegisterActivity.this, "멘토 혹은 멘티를 선택해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isCheckedDuplicate) {
+                    Toast.makeText(RegisterActivity.this, "아이디 중복 체크 바랍니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!et_pass.getText().toString().equals(et_passck.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "비밀번호가 다릅니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (validate) {
+                    Toast.makeText(RegisterActivity.this, "이미 존재하는 아이디입니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         String identity = btn_radio1.isChecked() ? "1" : "0";
-                        if (et_pass.getText().toString().equals(et_passck.getText().toString())) {
-                            postRegister(et_id.getText().toString()
-                                    , et_pass.getText().toString()
-                                    , et_name.getText().toString()
-                                    , identity);
-
-                        }
+                        postRegister(et_id.getText().toString()
+                                , et_pass.getText().toString()
+                                , et_name.getText().toString()
+                                , identity);
                     }
                 }).start();
 
             }
         });
-        ImageButton back_ib = findViewById(R.id.back_ib);
-        back_ib.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.back_ib).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
@@ -145,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    public boolean postRegister(String id, String pw, String userName, String identity) {
+    public void postRegister(String id, String pw, String userName, String identity) {
         try {
             String url = "http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
             OkHttpClient client = new OkHttpClient();
@@ -175,19 +183,20 @@ public class RegisterActivity extends AppCompatActivity {
                         bundle.putBoolean("register", true);
                         message.setData(bundle);
                         handler.sendMessage(message);
-                        return true;
                     } else {
-                        return false;
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(RegisterActivity.this, "회원가입에 실패하였습니다!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-//                    Log.d("body", data);
                 }
             } else {
                 Log.d("response", "error");
             }
-            return true;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
     }
 
@@ -212,7 +221,6 @@ public class RegisterActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
-                    Log.d("data", data);
                     if (data.equals("1")) {
                         validate = true;
                         Message message = handler.obtainMessage();
@@ -226,7 +234,6 @@ public class RegisterActivity extends AppCompatActivity {
                         handler.sendMessage(message);
                         return false;
                     }
-//                    Log.d("body", data);
                 }
             } else {
                 Log.d("response", "error");
@@ -287,8 +294,6 @@ public class RegisterActivity extends AppCompatActivity {
                     message.setData(bundle);
                     handler.sendMessage(message);
 
-//                    Log.d("response", data);
-//                    Log.d("uid",jsonObject.get("uid").toString());
                 }
             } else {
                 Log.d("response", "error");

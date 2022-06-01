@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/alert_cv"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="70dp"
         android:background="@color/white"
         android:elevation="10dp"
         app:cardCornerRadius="20dp"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="멘토님이 "
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
                 android:layout_marginLeft="3dp"
                 android:text="과제명"
                 android:textColor="@color/teal_700"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/alert_text1_tv"
                 app:layout_constraintTop_toTopOf="@id/alert_text1_tv" />
@@ -69,7 +69,7 @@
                 android:layout_marginLeft="2dp"
                 android:text="을 업로드했습니다."
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@id/alert_name_tv"
                 app:layout_constraintTop_toTopOf="@id/alert_name_tv" />
 

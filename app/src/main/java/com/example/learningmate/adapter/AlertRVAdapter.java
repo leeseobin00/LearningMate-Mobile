@@ -1,4 +1,4 @@
-package com.example.learningmate;
+package com.example.learningmate.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.learningmate.R;
+import com.example.learningmate.model.Alert;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,7 +40,7 @@ public class AlertRVAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     private ArrayList<Alert> alertArrayList;
-    AlertRVAdapter(ArrayList<Alert> list) {
+    public AlertRVAdapter(ArrayList<Alert> list) {
         this.alertArrayList = list;
     }
 

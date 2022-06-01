@@ -12,6 +12,13 @@ public class QuizMaker {
 
     public QuizMaker(String quizNum){
         this.quizNum = quizNum;
+        this.question = "";
+        this.choice1 = "";
+        this.choice2 = "";
+        this.choice3 = "";
+        this.choice4 = "";
+        this.answer = "";
+        this.point = "";
     }
     public QuizMaker(String quizNum, String question, String choice1, String choice2, String choice3, String choice4, String answer, String point) {
         this.quizNum = quizNum;

@@ -1,4 +1,4 @@
-package com.example.learningmate;
+package com.example.learningmate.model;
 
 public class Alert implements Comparable<Alert>{
     private String alertName;

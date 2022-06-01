@@ -81,6 +81,10 @@ public class LibraryCreateActivity extends AppCompatActivity {
                     Toast.makeText(LibraryCreateActivity.this, "파일이 선택되지 않았습니다!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(materialName.getText().toString().isEmpty()){
+                    Toast.makeText(LibraryCreateActivity.this, "자료명을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 File file = new File(filePath);
                 new Thread(new Runnable() {
                     @Override

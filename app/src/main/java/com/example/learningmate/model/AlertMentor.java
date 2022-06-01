@@ -1,4 +1,4 @@
-package com.example.learningmate;
+package com.example.learningmate.model;
 
 public class AlertMentor {
     public String alertName;
