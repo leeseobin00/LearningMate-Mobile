@@ -80,12 +80,23 @@ public class FileMentorActivity extends AppCompatActivity {
                     return;
                 }
                 if (!isSelectFile) {
-                    Toast.makeText(FileMentorActivity.this, "파일이 선택되지 않았습니다!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FileMentorActivity.this, "파일을 첨부해주세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (title.getText().toString().isEmpty()) {
+                    Toast.makeText(FileMentorActivity.this, "과제명을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (body.getText().toString().isEmpty()) {
+                    Toast.makeText(FileMentorActivity.this, "설명을 작성하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (score.getText().toString().isEmpty()) {
+                    Toast.makeText(FileMentorActivity.this, "만점 점수를 입력하세요!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 File sourceFile = new File(filePath);
-                Log.d("path", filePath);
-                Log.d("name", fileName);
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -119,7 +130,6 @@ public class FileMentorActivity extends AppCompatActivity {
                                                 finish();
                                             }
                                         });
-
                                     } else {
                                         handler.post(new Runnable() {
                                             @Override
@@ -197,10 +207,8 @@ public class FileMentorActivity extends AppCompatActivity {
             while ((read = inputStream.read(buffers)) != -1) {
                 outputStream.write(buffers, 0, read);
             }
-            Log.d("File Size", "Size " + file.length());
             inputStream.close();
             outputStream.close();
-            Log.d("File Path", "Path " + file.getPath());
         } catch (Exception e) {
             Log.e("Exception", e.getMessage());
         }
