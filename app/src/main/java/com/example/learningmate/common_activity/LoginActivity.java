@@ -30,19 +30,17 @@ import okhttp3.ResponseBody;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText et_id, et_pass;
-    private Button btn_login,btn_register;
-    private Handler handler = new Handler(Looper.myLooper()){
+    private Button btn_login, btn_register;
+    private Handler handler = new Handler(Looper.myLooper()) {
         @Override
         public void handleMessage(@NonNull Message msg) {
             boolean result = msg.getData().getBoolean("login");
-            if(result){
-//                Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+            if (result) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);    // 메인 화면으로 이동
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-            }
-            else{
-                Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(LoginActivity.this, msg.getData().getString("message"), Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -52,17 +50,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        String url = "http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
         findViewById(R.id.test_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, TestFileActivity.class));
             }
         });
-        et_id=findViewById(R.id.editTextIdLogin);
-        et_pass=findViewById(R.id.editTextPwLogin);
-        btn_login=findViewById(R.id.btnLogin);
-        btn_register=findViewById(R.id.btnRegister);
+        et_id = findViewById(R.id.editTextIdLogin);
+        et_pass = findViewById(R.id.editTextPwLogin);
+        btn_login = findViewById(R.id.btnLogin);
+        btn_register = findViewById(R.id.btnRegister);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,22 +73,24 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userID = et_id.getText().toString();
                 String userPass = et_pass.getText().toString();
+                if (userID.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "아이디를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (userPass.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "비밀번호를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         postUserInfo(userID, userPass);
                     }
                 }).start();
-                // DB의 정보와 입력한 정보가 일치하면 main page로 이동
-                //if (success) {
-
-                //} else {
-                // DB의 정보와 일치하지 않으면 메세지를 띄움
-                //Toast.makeText(LoginActivity.this, "아이디 비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
-                //}
             }
         });
     }
+
     public boolean postUserInfo(String id, String pw) {
         try {
             String url = "http://windry.dothome.co.kr/se_learning_mate/controller/account_controller.php";
@@ -114,15 +113,16 @@ public class LoginActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
-                    Log.d("data", data);
-                    if(data.contains("Wrong Password!") || data.contains("Invalid User!")){
+                    if (data.contains("Wrong Password!") || data.contains("Invalid User!")) {
                         Bundle bundle = new Bundle();
                         Message message = handler.obtainMessage();
                         bundle.putBoolean("login", false);
+                        bundle.putString("message", data.equals("Wrong Password!") ? "비밀번호가 옳지 않습니다!" : "존재하지 않는 계정입니다!");
                         message.setData(bundle);
                         handler.sendMessage(message);
+                        return false;
                     }
-                    JSONObject jsonObject= new JSONObject(data);
+                    JSONObject jsonObject = new JSONObject(data);
                     User user = new User(
                             jsonObject.get("uid").toString(),
                             jsonObject.get("userName").toString(),
@@ -140,9 +140,6 @@ public class LoginActivity extends AppCompatActivity {
                     User.currentUser = user;
                     message.setData(bundle);
                     handler.sendMessage(message);
-
-//                    Log.d("response", data);
-//                    Log.d("uid",jsonObject.get("uid").toString());
                 }
             } else {
                 Log.d("response", "error");
