@@ -30,9 +30,8 @@ import java.util.ArrayList;
 
 public class QuizMakerActivity extends AppCompatActivity {
 
-    RecyclerView quizmakerRecyclerViews;
-    RecyclerView.LayoutManager layoutManager;
-
+    private RecyclerView quizMakerRecyclerView;
+    private RecyclerView.LayoutManager layoutManager;
     private Button createQuizButton;
     private EditText inputTitle;
     private EditText inputTimeLimit;
@@ -47,9 +46,9 @@ public class QuizMakerActivity extends AppCompatActivity {
             if (checkSum == 4) {
                 Toast.makeText(QuizMakerActivity.this, "퀴즈 등록 완료", Toast.LENGTH_SHORT).show();
                 finish();
+                return;
             }
             if (msg.arg1 == 1) {
-
                 for (int i = 0; i < quizMakerArrayList.size(); ++i) {
                     int cur = i;
                     new Thread(new Runnable() {
@@ -67,7 +66,6 @@ public class QuizMakerActivity extends AppCompatActivity {
                         }
                     }).start();
                 }
-
             }
         }
     };
@@ -77,13 +75,12 @@ public class QuizMakerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizmaker2);
 
-        quizmakerRecyclerViews = findViewById(R.id.quizmaker_rv);
+        quizMakerRecyclerView = findViewById(R.id.quizmaker_rv);
         inputTitle = findViewById(R.id.quiz_name_et);
         inputTimeLimit = findViewById(R.id.time_limit);
-        quizmakerRecyclerViews.setHasFixedSize(true);
+        quizMakerRecyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        quizmakerRecyclerViews.setLayoutManager(layoutManager);
-
+        quizMakerRecyclerView.setLayoutManager(layoutManager);
         quizMakerArrayList = new ArrayList<>();
 
         quizMakerArrayList.add(new QuizMaker("문제 1"));
@@ -92,13 +89,25 @@ public class QuizMakerActivity extends AppCompatActivity {
         quizMakerArrayList.add(new QuizMaker("문제 4"));
 
         QuizmakerRVAdapter quizmakerRVAdapter = new QuizmakerRVAdapter(quizMakerArrayList);
-        quizmakerRecyclerViews.setAdapter(quizmakerRVAdapter);
+        quizMakerRecyclerView.setAdapter(quizmakerRVAdapter);
 
         createQuizButton = findViewById(R.id.btnQuizmake);
         createQuizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 퀴즈의 문제와 정답 보기를 DB에 저장
+                if (inputTitle.getText().toString().isEmpty()) {
+                    Toast.makeText(QuizMakerActivity.this, "퀴즈 제목을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (inputTimeLimit.getText().toString().isEmpty()) {
+                    Toast.makeText(QuizMakerActivity.this, "시간 제한(초)을 입력하세요!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isAllFilled()) {
+                    Toast.makeText(QuizMakerActivity.this, "입력하지 않은 내용이 있습니다!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -119,7 +128,7 @@ public class QuizMakerActivity extends AppCompatActivity {
         try {
             String url = "http://windry.dothome.co.kr/se_learning_mate/controller/quiz_controller.php";
             OkHttpClient client = new OkHttpClient();
-            for(int i=0; i<quizMakerArrayList.size(); ++i){
+            for (int i = 0; i < quizMakerArrayList.size(); ++i) {
                 totalScore += Integer.parseInt(quizMakerArrayList.get(i).getPoint());
             }
             RequestBody formBody = new FormBody.Builder()
@@ -142,7 +151,6 @@ public class QuizMakerActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
-                    Log.d("data", data);
                     if (data.equals("Fail")) {
                         handler.post(new Runnable() {
                             @Override
@@ -193,7 +201,6 @@ public class QuizMakerActivity extends AppCompatActivity {
                 ResponseBody body = response.body();
                 if (body != null) {
                     String data = body.string();
-                    Log.d("data", data);
                     if (data.equals("0")) {
                         handler.post(new Runnable() {
                             @Override
@@ -213,5 +220,22 @@ public class QuizMakerActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean isAllFilled() {
+        boolean filled = true;
+        for (int i = 0; i < quizMakerArrayList.size(); ++i) {
+            if (quizMakerArrayList.get(i).getQuestion().isEmpty()
+                    || quizMakerArrayList.get(i).getPoint().isEmpty()
+                    || quizMakerArrayList.get(i).getChoice1().isEmpty()
+                    || quizMakerArrayList.get(i).getChoice2().isEmpty()
+                    || quizMakerArrayList.get(i).getChoice3().isEmpty()
+                    || quizMakerArrayList.get(i).getChoice4().isEmpty()
+                    || quizMakerArrayList.get(i).getAnswer().isEmpty()) {
+                filled = false;
+                break;
+            }
+        }
+        return filled;
     }
 }
